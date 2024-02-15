@@ -113,6 +113,13 @@ button:hover {
   color: #d86800;
 }
 
+.navLink {
+  color: #ffff88;
+}
+.navLink:hover {
+  color: #ff7b00;
+}
+
 .textfield {
   padding: 0.3rem 0.5rem;
   border-radius: 5px;

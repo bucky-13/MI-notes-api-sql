@@ -1,7 +1,15 @@
 import displayLogin from './userSection/displayLogin.js';
+import updateNavUser from './navSection/updateNavUser.js';
+import displayNotesOverview from './notesSection/displayNotesOverview.js';
 
 tinymce.init({
   selector: 'textarea#default',
 });
 
-displayLogin();
+updateNavUser();
+
+if (localStorage.getItem('userId')) {
+  displayNotesOverview();
+} else {
+  displayLogin();
+}

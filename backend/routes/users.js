@@ -79,7 +79,8 @@ router.post('/login', (req, res, next) => {
           message: 'Login failed, email or password are incorrect.',
         });
       } else {
-        res.json(result);
+        let user = result[0];
+        res.json(user);
       }
     });
   });
