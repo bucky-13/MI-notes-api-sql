@@ -46,6 +46,12 @@ nav {
   align-items: flex-start;
 }
 
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .todo-note {
   background-color: #ffff88;
   padding: 1rem;
