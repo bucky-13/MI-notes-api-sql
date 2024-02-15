@@ -91,14 +91,34 @@ router.put('/', (req, res, next) => {
     let userId = req.body.userId;
     let headline = req.body.headline;
     let textContent = req.body.textContent;
-    let sql = `UPDATE notes SET headline="${headline}", textContent="${textContent}" WHERE noteId=${noteId} AND userId=${userId}`;
+    let sql = `UPDATE notes SET headline="${headline}", textContent="${textContent}" WHERE noteId=${noteId} AND userId=${userId} AND deleted="0"`;
 
     req.app.locals.con.query(sql, function (err, result) {
       if (err) {
         console.log(err);
       }
       console.log('result', result);
-      res.send(result);
+      res.json(result);
+    });
+  });
+});
+
+// soft delete a note so it won't show up
+router.delete('/', (req, res, next) => {
+  req.app.locals.con.connect(function (err) {
+    if (err) {
+      console.log(err);
+    }
+    let noteId = req.body.noteId;
+    let userId = req.body.userId;
+
+    let sql = `UPDATE notes SET deleted="1" WHERE noteId="${noteId}" AND userId="${userId}"`;
+    req.app.locals.con.query(sql, function (err, result) {
+      if (err) {
+        console.log(err);
+      }
+      console.log('result', result);
+      res.json(result);
     });
   });
 });
