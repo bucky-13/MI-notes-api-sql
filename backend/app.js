@@ -19,8 +19,6 @@ app.locals.con = mysql.createConnection({
   database: process.env.SQL_USER,
 });
 
-let test = process.env.SQL_PASSWORD;
-
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());

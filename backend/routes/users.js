@@ -56,4 +56,34 @@ router.post('/', function (req, res, next) {
   });
 });
 
+// login user
+router.post('/login', (req, res, next) => {
+  req.app.locals.con.connect(function (err) {
+    if (err) {
+      console.log(err);
+    }
+
+    let userEmail = req.body.userEmail;
+    let userPassword = req.body.userPassword;
+
+    // If a user have been soft deleted, they cannot login
+
+    let sql = `SELECT userId, userName FROM users WHERE userEmail="${userEmail}"  AND userPassword="${userPassword}" AND deleted="0"`;
+
+    req.app.locals.con.query(sql, function (err, result) {
+      if (err) {
+        console.log(err);
+      }
+
+      if (!result[0]) {
+        res.status(401).json({
+          message: 'Login failed, email or password are incorrect.',
+        });
+      } else {
+        res.json(result);
+      }
+    });
+  });
+});
+
 module.exports = router;
