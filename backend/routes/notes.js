@@ -10,8 +10,30 @@ router.get('/:userId', function (req, res, next) {
       console.log(err);
     }
 
-    // GET userName & userEmail from all users
+    // GET all notes from a specific user
     let sql = `SELECT * FROM notes WHERE userId="${userId}" AND deleted="0"`;
+
+    req.app.locals.con.query(sql, function (err, result) {
+      if (err) {
+        console.log(err);
+      }
+      res.json(result);
+    });
+  });
+});
+
+// recieve specific note
+router.get('/:userId/:noteId', function (req, res, next) {
+  let userId = req.params.userId;
+  let noteId = req.params.noteId;
+
+  req.app.locals.con.connect(function (err) {
+    if (err) {
+      console.log(err);
+    }
+
+    // GET one specific note from one specific user
+    let sql = `SELECT * FROM notes WHERE userId="${userId}" AND deleted="0" AND noteId="${noteId}"`;
 
     req.app.locals.con.query(sql, function (err, result) {
       if (err) {
