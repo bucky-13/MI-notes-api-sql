@@ -79,6 +79,30 @@ router.post('/', function (req, res, next) {
   });
 });
 
+// update content in one note
+
+router.put('/', (req, res, next) => {
+  req.app.locals.con.connect(function (err) {
+    if (err) {
+      console.log(err);
+    }
+
+    let noteId = req.body.noteId;
+    let userId = req.body.userId;
+    let headline = req.body.headline;
+    let textContent = req.body.textContent;
+    let sql = `UPDATE notes SET headline="${headline}", textContent="${textContent}" WHERE noteId=${noteId} AND userId=${userId}`;
+
+    req.app.locals.con.query(sql, function (err, result) {
+      if (err) {
+        console.log(err);
+      }
+      console.log('result', result);
+      res.send(result);
+    });
+  });
+});
+
 // GET all notes - just for testing, not needed for the app, delete route when no longer needed
 router.get('/', function (req, res, next) {
   req.app.locals.con.connect(function (err) {
