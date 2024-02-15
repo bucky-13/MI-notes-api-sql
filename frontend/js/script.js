@@ -6,6 +6,9 @@ tinymce.init({
   selector: 'textarea#default',
 });
 
+let navNotes = document.querySelector('#navNotes');
+navNotes.addEventListener('click', displayNotesOverview);
+
 updateNavUser();
 
 if (localStorage.getItem('userId')) {

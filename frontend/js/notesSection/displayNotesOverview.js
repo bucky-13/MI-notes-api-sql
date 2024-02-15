@@ -9,7 +9,11 @@ let app = document.querySelector('#app');
 
 export default function displayNotesOverview() {
   app.innerHTML = '';
-  let h2 = createH2('Look at all these notes! :D');
-
-  app.append(h2);
+  if (localStorage.getItem('userId')) {
+    let h2 = createH2('Look at all these notes! :D');
+    app.append(h2);
+  } else {
+    let h2 = createH2('You have no notes since you are not logged in');
+    app.append(h2);
+  }
 }
