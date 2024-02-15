@@ -5,6 +5,7 @@ import {
   createButton,
   createLink,
 } from '../createElements.js';
+import createUser from './createUser.js';
 
 let app = document.querySelector('#app');
 
@@ -27,9 +28,7 @@ export default function displayCreateUser() {
 
   app.append(h2, nameInput, emailInput, passwordInput, button, link);
 
-  document.querySelector('#submitBtn').addEventListener('click', () => {
-    console.log(userEmail.value, userPassword.value);
-  });
+  document.querySelector('#submitBtn').addEventListener('click', createUser);
 
   document
     .querySelector('#goToLoginLink')

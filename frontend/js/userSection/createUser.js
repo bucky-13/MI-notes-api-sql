@@ -1,16 +1,21 @@
 import updateNavUser from '../navSection/updateNavUser.js';
 import displayNotesOverview from '../notesSection/displayNotesOverview.js';
+import loginUser from './loginUser.js';
 
-export default function loginUser() {
+export default function createUser() {
+  let userName = document.querySelector('#userName');
   let userEmail = document.querySelector('#userEmail');
   let userPassword = document.querySelector('#userPassword');
 
   let user = {
+    userName: userName.value,
     userEmail: userEmail.value,
     userPassword: userPassword.value,
   };
 
-  fetch('http://localhost:3000/users/login', {
+  console.log(user);
+
+  fetch('http://localhost:3000/users/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -19,12 +24,8 @@ export default function loginUser() {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.userId) {
-        localStorage.setItem('userId', data.userId);
-        localStorage.setItem('userName', data.userName);
-        localStorage.setItem('userEmail', data.userEmail);
-        updateNavUser();
-        displayNotesOverview();
+      if (data.insertId) {
+        loginUser();
       } else {
         console.log(data.message);
       }
