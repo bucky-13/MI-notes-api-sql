@@ -3,7 +3,57 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  res.send('this is users router');
+  req.app.locals.con.connect(function (err) {
+    if (err) {
+      console.log(err);
+    }
+
+    // GET userName & userEmail from all users
+    let sql = `SELECT userId, userName, userEmail FROM users WHERE deleted="0"`;
+
+    req.app.locals.con.query(sql, function (err, result) {
+      if (err) {
+        console.log(err);
+      }
+      res.send(result);
+    });
+  });
+});
+
+// create new user
+router.post('/', function (req, res, next) {
+  req.app.locals.con.connect(function (err) {
+    if (err) {
+      console.log(err);
+    }
+
+    let userName = req.body.userName;
+    let userEmail = req.body.userEmail;
+    //  ADD password encryption later on
+    let userPassword = req.body.userPassword;
+
+    let firstSql = `SELECT * FROM users WHERE userName="${userName}" OR userEmail="${userEmail}"`;
+
+    // POST new user into database
+    let secondSql = `INSERT INTO users (userName, userEmail, userPassword) VALUES ("${userName}", "${userEmail}", "${userPassword}")`;
+
+    req.app.locals.con.query(firstSql, function (err, result) {
+      if (err) {
+        console.log(err);
+      }
+      if (!result[0]) {
+        console.log('user can be created');
+        req.app.locals.con.query(secondSql, function (err, result) {
+          if (err) {
+            console.log(err);
+          }
+          res.send(result);
+        });
+      } else {
+        res.status(409).json({ message: 'user name or email already exists' });
+      }
+    });
+  });
 });
 
 module.exports = router;

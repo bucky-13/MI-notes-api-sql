@@ -4,11 +4,20 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 let cors = require('cors');
 require('dotenv').config();
+const mysql = require('mysql2');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+app.locals.con = mysql.createConnection({
+  host: 'localhost',
+  port: process.env.SQL_PORT,
+  user: process.env.SQL_USER,
+  password: process.env.SQL_PASSWORD,
+  database: process.env.SQL_USER,
+});
 
 let test = process.env.SQL_PASSWORD;
 
