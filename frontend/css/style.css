@@ -6,12 +6,22 @@ body {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: chocolate;
+  background-color: rgb(236, 191, 158);
 }
 
 h1 {
   color: black;
   text-shadow: 0px 0px 4px #ffff88;
+}
+
+a {
+  color: rgb(134, 68, 20);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d86800;
+  text-decoration: underline 2px;
 }
 
 nav {
@@ -25,12 +35,6 @@ nav {
 }
 
 .app {
-  background-color: white;
-  width: 80vw;
-  /* height: 80vh; */
-  border: 2px solid black;
-  border-radius: 8px;
-  box-shadow: 10px 10px 5px black;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -114,23 +118,29 @@ button:hover {
   border-radius: 5px;
   border: 1px solid #ff7b00;
   width: 250px;
-  background-color: #ffff88;
+  /* background-color: #ffff88; */
   font-size: 1.2rem;
   box-shadow: 3px 3px 3px black;
   margin-right: 1rem;
 }
 
 .textfield:focus {
-  border: 2px solid #ff7b00;
+  border: 1px solid #ff7b00;
+  background-color: antiquewhite;
 }
 
-.formLabel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.form-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 0 20px;
   margin: 10px;
 }
 
 .error {
   color: red;
+}
+
+.margin-top-1-rem {
+  margin-top: 1rem;
 }
