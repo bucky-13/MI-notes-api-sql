@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+// recieve all users
 router.get('/', function (req, res, next) {
   req.app.locals.con.connect(function (err) {
     if (err) {

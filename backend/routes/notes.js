@@ -1,34 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
-// GET all notes - just for testing, not needed for the app
-router.get('/', function (req, res, next) {
-  req.app.locals.con.connect(function (err) {
-    if (err) {
-      console.log(err);
-    }
-
-    // GET all information from all notes
-    let sql = `SELECT * FROM notes WHERE deleted="0"`;
-
-    req.app.locals.con.query(sql, function (err, result) {
-      if (err) {
-        console.log(err);
-      }
-      res.json(result);
-    });
-  });
-});
-
-// GET all notes from logged in user
+// recieve all notes from logged in user
 router.get('/:userId', function (req, res, next) {
+  let userId = req.params.userId;
+
   req.app.locals.con.connect(function (err) {
     if (err) {
       console.log(err);
     }
 
     // GET userName & userEmail from all users
-    let sql = `SELECT * FROM notes WHERE deleted="0"`;
+    let sql = `SELECT * FROM notes WHERE userId="${userId}" AND deleted="0"`;
 
     req.app.locals.con.query(sql, function (err, result) {
       if (err) {
@@ -70,6 +53,25 @@ router.post('/', function (req, res, next) {
       } else {
         res.status(409).json({ message: 'User does not exist' });
       }
+    });
+  });
+});
+
+// GET all notes - just for testing, not needed for the app, delete route when no longer needed
+router.get('/', function (req, res, next) {
+  req.app.locals.con.connect(function (err) {
+    if (err) {
+      console.log(err);
+    }
+
+    // GET all information from all notes
+    let sql = `SELECT * FROM notes WHERE deleted="0"`;
+
+    req.app.locals.con.query(sql, function (err, result) {
+      if (err) {
+        console.log(err);
+      }
+      res.json(result);
     });
   });
 });
