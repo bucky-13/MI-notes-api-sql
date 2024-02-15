@@ -68,7 +68,7 @@ router.post('/login', (req, res, next) => {
 
     // If a user have been soft deleted, they cannot login
 
-    let sql = `SELECT userId, userName FROM users WHERE userEmail="${userEmail}"  AND userPassword="${userPassword}" AND deleted="0"`;
+    let sql = `SELECT userId, userName, userEmail FROM users WHERE userEmail="${userEmail}"  AND userPassword="${userPassword}" AND deleted="0"`;
 
     req.app.locals.con.query(sql, function (err, result) {
       if (err) {
