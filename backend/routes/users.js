@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
       if (err) {
         console.log(err);
       }
-      res.send(result);
+      res.json(result);
     });
   });
 });
@@ -42,12 +42,11 @@ router.post('/', function (req, res, next) {
         console.log(err);
       }
       if (!result[0]) {
-        console.log('user can be created');
         req.app.locals.con.query(secondSql, function (err, result) {
           if (err) {
             console.log(err);
           }
-          res.send(result);
+          res.json(result);
         });
       } else {
         res.status(409).json({ message: 'user name or email already exists' });
