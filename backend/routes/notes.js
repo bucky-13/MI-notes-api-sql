@@ -17,7 +17,6 @@ router.get('/:userId', function (req, res, next) {
       if (err) {
         console.log(err);
       }
-      console.log(typeof result);
       res.json(result);
     });
   });
@@ -53,8 +52,8 @@ router.post('/', function (req, res, next) {
     }
 
     let userId = req.body.userId;
-    let headline = req.body.headline;
-    let description = req.body.description;
+    let headline = filterQuotes(req.body.headline);
+    let description = filterQuotes(req.body.description);
     let textContent = '';
 
     let firstSql = `SELECT * FROM users WHERE userId="${userId}" AND deleted="0"`;
@@ -92,17 +91,20 @@ router.put('/', (req, res, next) => {
 
     let noteId = req.body.noteId;
     let userId = req.body.userId;
-    let headline = req.body.headline;
-    let description = req.body.description;
-    let textContent = req.body.textContent;
+    let headline = filterQuotes(req.body.headline);
+    let description = filterQuotes(req.body.description);
+    let textContent = filterQuotes(req.body.textContent);
+    // console.log(typeof textContent);
 
-    let sql = `UPDATE notes SET headline="${headline}", description="${description}", textContent='${textContent}' WHERE noteId=${noteId} AND userId=${userId} AND deleted="0"`;
+    // let filteredTextContent = textContent.replace(/"/g, '""');
+    // console.log(filteredTextContent);
+
+    let sql = `UPDATE notes SET headline="${headline}", description="${description}", textContent="${textContent}" WHERE noteId=${noteId} AND userId=${userId} AND deleted="0"`;
 
     req.app.locals.con.query(sql, function (err, result) {
       if (err) {
         console.log(err);
       }
-      console.log('result', result);
       res.json(result);
     });
   });
@@ -122,7 +124,6 @@ router.delete('/', (req, res, next) => {
       if (err) {
         console.log(err);
       }
-      console.log('result', result);
       res.json(result);
     });
   });
@@ -146,5 +147,10 @@ router.get('/', function (req, res, next) {
     });
   });
 });
+
+function filterQuotes(text) {
+  let newText = text.replace(/"/g, '""');
+  return newText;
+}
 
 module.exports = router;

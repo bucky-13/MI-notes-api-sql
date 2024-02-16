@@ -17,13 +17,16 @@ export default function displayDeleteNote(noteId, headline, description) {
   let h2 = createH2('Do you really want to delete this note?');
   let h3 = createH3(headline);
   let p = createParagraph(description);
+  let div = createDiv('flex');
   let btnReturn = createButton('viewNote', 'No, view the note instead');
   let btnDelete = createButton(
     'deleteNote',
     'Yes, delete this note',
     'btn-red'
   );
-  app.append(h2, h3, p, btnReturn, btnDelete);
+
+  div.append(btnReturn, btnDelete);
+  app.append(h2, h3, p, div);
 
   document.querySelector('#viewNote').addEventListener('click', () => {
     displayOneNote(noteId);
