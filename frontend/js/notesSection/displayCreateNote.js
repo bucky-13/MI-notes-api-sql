@@ -14,12 +14,21 @@ export default function displayCreateNote() {
   app.innerHTML = '';
 
   let h2 = createH2('Create New Note');
-  let input = createInputWithLabel('text', 'headline', 'Note Headline: ');
+  let inputHeadline = createInputWithLabel(
+    'text',
+    'headline',
+    'Note Headline: '
+  );
+  let inputDescription = createInputWithLabel(
+    'text',
+    'description',
+    'Note Description: '
+  );
   let button = createButton(
     'createNoteBtn',
     'Save Note and start writing',
     'margin-top-1-rem'
   );
 
-  app.append(h2, input, button);
+  app.append(h2, inputHeadline, inputDescription, button);
 }

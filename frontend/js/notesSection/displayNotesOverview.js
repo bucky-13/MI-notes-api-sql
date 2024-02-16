@@ -32,13 +32,13 @@ export default function displayNotesOverview() {
           let div = createDiv('whiteboard');
 
           let h3 = createH3(note.headline, `note-${note.noteId}`);
-
+          let description = createParagraph(note.description);
           let pText = 'Created: ' + note.created;
           let p = createParagraph(pText);
           let viewBtn = createButton(`view-btn-${note.noteId}`, 'View');
           let editBtn = createButton(`edit-btn-${note.noteId}`, 'Edit');
 
-          div.append(h3, viewBtn, editBtn, p);
+          div.append(h3, description, viewBtn, editBtn, p);
           app.append(div);
           document
             .querySelector(`#view-btn-${note.noteId}`)
