@@ -8,6 +8,7 @@ import {
   createParagraph,
 } from '../createElements.js';
 import displayCreateNote from './displayCreateNote.js';
+import displayOneNote from './displayOneNote.js';
 
 let app = document.querySelector('#app');
 
@@ -29,18 +30,20 @@ export default function displayNotesOverview() {
       .then((data) => {
         data.map((note) => {
           let div = createDiv('whiteboard');
-          let a = createLink(`link-${note.noteId}`, '');
+
           let h3 = createH3(note.headline, `note-${note.noteId}`);
-          a.append(h3);
+
           let pText = 'Created: ' + note.created;
           let p = createParagraph(pText);
+          let viewBtn = createButton(`view-btn-${note.noteId}`, 'View');
+          let editBtn = createButton(`edit-btn-${note.noteId}`, 'Edit');
 
-          div.append(a, p);
+          div.append(h3, viewBtn, editBtn, p);
           app.append(div);
           document
-            .querySelector(`#note-${note.noteId}`)
+            .querySelector(`#view-btn-${note.noteId}`)
             .addEventListener('click', () => {
-              console.log('I work? ' + note.noteId);
+              displayOneNote(note.noteId);
             });
         });
       });

@@ -40,7 +40,7 @@ router.get('/:userId/:noteId', function (req, res, next) {
       if (err) {
         console.log(err);
       }
-      res.json(result);
+      res.json(result[0]);
     });
   });
 });
