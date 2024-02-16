@@ -26,9 +26,17 @@ export default function editNote(noteId) {
 
       tinymce.init({
         selector: 'textarea#tinyMCEEditor',
+        height: 600,
+        width: '90%',
+        skin: window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'oxide-dark'
+          : 'oxide',
+        content_css: window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'default',
         plugins: 'code',
         toolbar:
-          'undo redo | styleselect bold italic | forecolor backcolor | alignleft aligncenter alignright | code',
+          'undo redo | styleselect bold italic blockquote | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent code | cut copy paste | visualaid',
 
         setup: function (editor) {
           editor.on('change', function () {
