@@ -5,6 +5,16 @@ function createH2(text) {
   return h2;
 }
 
+// pass in the text that will be displayed in the h2 element
+function createH3(text, id) {
+  let h3 = document.createElement('h3');
+  h3.textContent = text;
+  if (id) {
+    h3.id = id;
+  }
+  return h3;
+}
+
 // first parameter: the type of input (i.e. text, password etc)
 // second parameter: the id for the input
 // third parameter: the text displayed in the span (essentially the label)
@@ -71,6 +81,7 @@ function createParagraph(pText, pClass) {
 
 export {
   createH2,
+  createH3,
   createInputWithLabel,
   createButton,
   createLink,

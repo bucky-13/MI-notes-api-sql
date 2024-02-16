@@ -17,6 +17,7 @@ router.get('/:userId', function (req, res, next) {
       if (err) {
         console.log(err);
       }
+      console.log(typeof result);
       res.json(result);
     });
   });

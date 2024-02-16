@@ -40,20 +40,24 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   margin-bottom: 3rem;
+  width: 100%;
 }
 
 .whiteboard {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
 }
 
 main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 90%;
 }
 
 .todo-note {
