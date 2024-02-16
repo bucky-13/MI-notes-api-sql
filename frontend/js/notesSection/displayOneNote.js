@@ -19,7 +19,8 @@ export default function displayOneNote(noteId) {
     .then((note) => {
       let h2 = createH2(note.headline);
       let description = createParagraph(note.description);
-      let p = createParagraph(note.textContent);
-      app.append(h2, description, p);
+      let div = createDiv('tiny-mce-content');
+      div.innerHTML = note.textContent;
+      app.append(h2, description, div);
     });
 }

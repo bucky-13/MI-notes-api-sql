@@ -8,6 +8,7 @@ import {
   createParagraph,
 } from '../createElements.js';
 import displayCreateNote from './displayCreateNote.js';
+import displayDeleteNote from './displayDeleteNote.js';
 import displayOneNote from './displayOneNote.js';
 import editNote from './editNote.js';
 
@@ -38,18 +39,30 @@ export default function displayNotesOverview() {
           let p = createParagraph(pText);
           let viewBtn = createButton(`view-btn-${note.noteId}`, 'View');
           let editBtn = createButton(`edit-btn-${note.noteId}`, 'Edit');
+          let deleteBtn = createButton(
+            `delete-btn-${note.noteId}`,
+            'Delete',
+            'btn-red'
+          );
 
-          div.append(h3, description, viewBtn, editBtn, p);
+          div.append(h3, description, viewBtn, editBtn, deleteBtn, p);
           app.append(div);
           document
             .querySelector(`#view-btn-${note.noteId}`)
             .addEventListener('click', () => {
               displayOneNote(note.noteId);
             });
+
           document
             .querySelector(`#edit-btn-${note.noteId}`)
             .addEventListener('click', () => {
               editNote(note.noteId);
+            });
+
+          document
+            .querySelector(`#delete-btn-${note.noteId}`)
+            .addEventListener('click', () => {
+              displayDeleteNote(note.noteId, note.headline, note.description);
             });
         });
       });

@@ -124,6 +124,15 @@ button:hover {
   color: #d86800;
 }
 
+.btn-red {
+  background-color: rgb(189, 0, 0);
+}
+
+.btn-red:hover {
+  background-color: red;
+  color: #ffff88;
+}
+
 .navLink {
   color: #ffff88;
 }
@@ -161,4 +170,12 @@ button:hover {
 
 .margin-top-1-rem {
   margin-top: 1rem;
+}
+
+.tiny-mce-content {
+  background-color: white;
+  padding: 2rem;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px black;
 }

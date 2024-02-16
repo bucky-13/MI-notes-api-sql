@@ -1,7 +1,10 @@
 // pass in the text that will be displayed in the h2 element
-function createH2(text) {
+function createH2(text, id) {
   let h2 = document.createElement('h2');
   h2.textContent = text;
+  if (id) {
+    h2.id = id;
+  }
   return h2;
 }
 
@@ -70,18 +73,20 @@ function createDiv(divClass) {
   return div;
 }
 
-function createParagraph(pText, pClass) {
+function createParagraph(pText, pClass, pId) {
   let p = document.createElement('p');
   p.textContent = pText;
   if (pClass) {
     p.classList.add(pClass);
+  }
+  if (pId) {
+    p.id = pId;
   }
   return p;
 }
 
 function createTinyMCE(note) {
   let textarea = document.createElement('textarea');
-  console.log(note.textContent);
   textarea.id = 'tinyMCEEditor';
   textarea.innerText = note.textContent;
   return textarea;

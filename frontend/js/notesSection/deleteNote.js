@@ -1,29 +1,25 @@
-import editNote from './editNote.js';
+import displayNotesOverview from './displayNotesOverview.js';
 
-export default function createNote(headline, description) {
+export default function deleteNote(noteId) {
   let userId = Number(localStorage.getItem('userId'));
 
-  let newNote = {
+  let deletedNote = {
+    noteId: noteId,
     userId: userId,
-    headline: headline,
-    description: description,
   };
-
   fetch('http://localhost:3000/notes/', {
-    method: 'POST',
+    method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(newNote),
+    body: JSON.stringify(deletedNote),
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.insertId) {
-        editNote(data.insertId);
+      if (data.changedRows) {
+        displayNotesOverview();
       } else {
         console.log(data.message);
       }
     });
-
-  console.log(newNote);
 }

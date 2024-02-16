@@ -95,7 +95,8 @@ router.put('/', (req, res, next) => {
     let headline = req.body.headline;
     let description = req.body.description;
     let textContent = req.body.textContent;
-    let sql = `UPDATE notes SET headline="${headline}", description="${description}", textContent="${textContent}" WHERE noteId=${noteId} AND userId=${userId} AND deleted="0"`;
+
+    let sql = `UPDATE notes SET headline="${headline}", description="${description}", textContent='${textContent}' WHERE noteId=${noteId} AND userId=${userId} AND deleted="0"`;
 
     req.app.locals.con.query(sql, function (err, result) {
       if (err) {
