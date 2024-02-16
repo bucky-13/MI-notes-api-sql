@@ -84,6 +84,13 @@ main {
   min-width: 00px;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .input-container {
   margin: 1rem 0;
 }

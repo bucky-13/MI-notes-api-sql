@@ -51,4 +51,29 @@ function createLink(aId, aText, aClass) {
   return a;
 }
 
-export { createH2, createInputWithLabel, createButton, createLink };
+function createDiv(divClass) {
+  let div = document.createElement('div');
+  if (divClass) {
+    div.classList.add(divClass);
+  }
+
+  return div;
+}
+
+function createParagraph(pText, pClass) {
+  let p = document.createElement('p');
+  p.textContent = pText;
+  if (pClass) {
+    p.classList.add(pClass);
+  }
+  return p;
+}
+
+export {
+  createH2,
+  createInputWithLabel,
+  createButton,
+  createLink,
+  createDiv,
+  createParagraph,
+};
