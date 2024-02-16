@@ -6,12 +6,12 @@ import {
   createLink,
   createDiv,
   createParagraph,
+  createTinyMCE,
 } from '../createElements.js';
-import displayCreateNote from './displayCreateNote.js';
 
 let app = document.querySelector('#app');
 
-export default function displayOneNote(noteId) {
+export default function editNote(noteId) {
   let userId = localStorage.getItem('userId');
   app.innerHTML = '';
   fetch(`http://localhost:3000/notes/${userId}/${noteId}`)
@@ -19,7 +19,12 @@ export default function displayOneNote(noteId) {
     .then((note) => {
       let h2 = createH2(note.headline);
       let description = createParagraph(note.description);
-      let p = createParagraph(note.textContent);
-      app.append(h2, description, p);
+      let tinyMCE = createTinyMCE(note);
+      //   let p = createParagraph(note.textContent);
+      app.append(h2, description, tinyMCE);
+
+      tinymce.init({
+        selector: 'textarea#tinyMCEEditor',
+      });
     });
 }

@@ -9,6 +9,7 @@ import {
 } from '../createElements.js';
 import displayCreateNote from './displayCreateNote.js';
 import displayOneNote from './displayOneNote.js';
+import editNote from './editNote.js';
 
 let app = document.querySelector('#app');
 
@@ -44,6 +45,11 @@ export default function displayNotesOverview() {
             .querySelector(`#view-btn-${note.noteId}`)
             .addEventListener('click', () => {
               displayOneNote(note.noteId);
+            });
+          document
+            .querySelector(`#edit-btn-${note.noteId}`)
+            .addEventListener('click', () => {
+              editNote(note.noteId);
             });
         });
       });

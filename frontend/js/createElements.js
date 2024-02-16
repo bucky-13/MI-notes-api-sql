@@ -79,6 +79,14 @@ function createParagraph(pText, pClass) {
   return p;
 }
 
+function createTinyMCE(note) {
+  let textarea = document.createElement('textarea');
+  console.log(note.textContent);
+  textarea.id = 'tinyMCEEditor';
+  textarea.innerText = note.textContent;
+  return textarea;
+}
+
 export {
   createH2,
   createH3,
@@ -87,4 +95,5 @@ export {
   createLink,
   createDiv,
   createParagraph,
+  createTinyMCE,
 };

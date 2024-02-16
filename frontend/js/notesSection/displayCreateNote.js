@@ -7,6 +7,7 @@ import {
   createDiv,
   createParagraph,
 } from '../createElements.js';
+import createNote from './createNote.js';
 
 let app = document.querySelector('#app');
 
@@ -31,4 +32,11 @@ export default function displayCreateNote() {
   );
 
   app.append(h2, inputHeadline, inputDescription, button);
+  let headline = document.querySelector('#headline');
+  let description = document.querySelector('#description');
+
+  document.querySelector('#createNoteBtn').addEventListener('click', () => {
+    createNote(headline.value, description.value);
+    // console.log(headline.value + ', ' + description.value);
+  });
 }

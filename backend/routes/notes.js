@@ -55,12 +55,13 @@ router.post('/', function (req, res, next) {
     let userId = req.body.userId;
     let headline = req.body.headline;
     let description = req.body.description;
-    let textContent = req.body.textContent;
+    let textContent = '';
 
     let firstSql = `SELECT * FROM users WHERE userId="${userId}" AND deleted="0"`;
 
     // POST new user into database
-    let secondSql = `INSERT INTO notes (userId, headline, description, textContent) VALUES ("${userId}", "${headline}", ${description}, "${textContent}")`;
+    // let secondSql = `INSERT INTO notes (userId, headline, description) VALUES ("${userId}", "${headline}", "${description}")`;
+    let secondSql = `INSERT INTO notes (userId, headline, description, textContent) VALUES ("${userId}", "${headline}", "${description}", "${textContent}")`;
 
     req.app.locals.con.query(firstSql, function (err, result) {
       if (err) {
