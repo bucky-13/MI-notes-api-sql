@@ -9,6 +9,7 @@ import {
   createParagraph,
   createTinyMCE,
 } from '../lib/createElements.js';
+import displayEditDescription from './DisplayEditDescription.js';
 import displayEditHeadline from './displayEditHeadline.js';
 import saveNote from './saveNote.js';
 
@@ -31,7 +32,7 @@ export default function editNote(noteId) {
         'edit',
         'flex-edit-btn'
       );
-      let descDiv = createDiv('flex');
+      let descDiv = createDiv('flex', 'descDiv');
       descDiv.append(description, editDescBtn);
 
       let tinyMCE = createTinyMCE(note);
@@ -64,6 +65,9 @@ export default function editNote(noteId) {
       });
       document.querySelector('#editH2Btn').addEventListener('click', () => {
         displayEditHeadline(noteId);
+      });
+      document.querySelector('#editDescBtn').addEventListener('click', () => {
+        displayEditDescription(noteId);
       });
     });
 }
