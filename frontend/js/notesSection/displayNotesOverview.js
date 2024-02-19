@@ -37,7 +37,15 @@ export default function displayNotesOverview() {
 
           let h3 = createH3(note.headline, `note-${note.noteId}`);
           let description = createParagraph(note.description);
-          let pText = 'Created: ' + note.created;
+          let date = new Date(note.created);
+          let time = `${date.getHours()}:${
+            (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()
+          }`;
+          let yearMonthDay = `${date.getFullYear()}-${
+            (date.getMonth() < 10 ? '0' : '') + date.getMonth()
+          }-${(date.getDay() < 10 ? '0' : '') + date.getDay()}`;
+
+          let pText = 'Created: ' + yearMonthDay + ', ' + time;
           let p = createParagraph(pText);
           let viewBtn = createButton(`view-btn-${note.noteId}`, 'View');
           let editBtn = createIconButton(
