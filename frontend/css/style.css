@@ -85,7 +85,22 @@ main {
   flex-wrap: nowrap;
   max-width: 900px;
   width: 100%;
-  min-width: 00px;
+  min-width: 500px;
+}
+.flex-edit-btn {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100px;
+}
+
+.edit-icon path {
+  fill: #ffff88;
+}
+button:hover .edit-icon path {
+  fill: #d86800;
 }
 
 .flex-column {

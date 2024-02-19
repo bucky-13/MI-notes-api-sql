@@ -5,7 +5,7 @@ import {
   createLink,
   createDiv,
   createParagraph,
-} from '../createElements.js';
+} from '../lib/createElements.js';
 let app = document.querySelector('#app');
 
 export default function displayUserinfo() {

@@ -1,3 +1,4 @@
+import createEditIcon from '../lib/createEditIcon.js';
 import {
   createH2,
   createH3,
@@ -6,7 +7,7 @@ import {
   createLink,
   createDiv,
   createParagraph,
-} from '../createElements.js';
+} from '../lib/createElements.js';
 import displayCreateNote from './displayCreateNote.js';
 import displayDeleteNote from './displayDeleteNote.js';
 import displayOneNote from './displayOneNote.js';
@@ -38,7 +39,13 @@ export default function displayNotesOverview() {
           let pText = 'Created: ' + note.created;
           let p = createParagraph(pText);
           let viewBtn = createButton(`view-btn-${note.noteId}`, 'View');
-          let editBtn = createButton(`edit-btn-${note.noteId}`, 'Edit');
+          let editBtn = createButton(
+            `edit-btn-${note.noteId}`,
+            'Edit',
+            'flex-edit-btn'
+          );
+          let editIcon = createEditIcon();
+          editBtn.innerHTML = editIcon + 'Edit ';
           let deleteBtn = createButton(
             `delete-btn-${note.noteId}`,
             'Delete',

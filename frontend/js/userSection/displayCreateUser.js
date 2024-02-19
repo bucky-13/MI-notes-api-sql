@@ -4,7 +4,7 @@ import {
   createInputWithLabel,
   createButton,
   createLink,
-} from '../createElements.js';
+} from '../lib/createElements.js';
 import createUser from './createUser.js';
 
 let app = document.querySelector('#app');

@@ -7,7 +7,7 @@ import {
   createDiv,
   createParagraph,
   createTinyMCE,
-} from '../createElements.js';
+} from '../lib/createElements.js';
 import saveNote from './saveNote.js';
 
 let app = document.querySelector('#app');

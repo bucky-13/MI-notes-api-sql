@@ -6,7 +6,7 @@ import {
   createLink,
   createDiv,
   createParagraph,
-} from '../createElements.js';
+} from '../lib/createElements.js';
 import deleteNote from './deleteNote.js';
 import displayOneNote from './displayOneNote.js';
 

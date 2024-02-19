@@ -6,7 +6,7 @@ import {
   createLink,
   createDiv,
   createParagraph,
-} from '../createElements.js';
+} from '../lib/createElements.js';
 import createNote from './createNote.js';
 
 let app = document.querySelector('#app');

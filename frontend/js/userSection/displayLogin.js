@@ -3,7 +3,7 @@ import {
   createInputWithLabel,
   createButton,
   createLink,
-} from '../createElements.js';
+} from '../lib/createElements.js';
 import displayCreateUser from './displayCreateUser.js';
 import loginUser from './loginUser.js';
 
