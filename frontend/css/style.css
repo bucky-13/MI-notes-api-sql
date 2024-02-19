@@ -93,7 +93,13 @@ main {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: nowrap;
-  width: 100px;
+  /* width: 100px; */
+}
+
+.flex-edit-btn p {
+  line-height: 0;
+  margin: 0 0 0 0.6rem;
+  padding: 0;
 }
 
 .edit-icon path {

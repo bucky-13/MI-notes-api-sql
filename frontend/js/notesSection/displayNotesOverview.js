@@ -4,6 +4,7 @@ import {
   createH3,
   createInputWithLabel,
   createButton,
+  createIconButton,
   createLink,
   createDiv,
   createParagraph,
@@ -39,13 +40,14 @@ export default function displayNotesOverview() {
           let pText = 'Created: ' + note.created;
           let p = createParagraph(pText);
           let viewBtn = createButton(`view-btn-${note.noteId}`, 'View');
-          let editBtn = createButton(
+          let editBtn = createIconButton(
             `edit-btn-${note.noteId}`,
             'Edit',
+            'edit',
             'flex-edit-btn'
           );
-          let editIcon = createEditIcon();
-          editBtn.innerHTML = editIcon + 'Edit ';
+          // let editIcon = createEditIcon();
+          // editBtn.innerHTML = editIcon + 'Edit ';
           let deleteBtn = createButton(
             `delete-btn-${note.noteId}`,
             'Delete',

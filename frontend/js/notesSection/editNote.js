@@ -3,11 +3,13 @@ import {
   createH3,
   createInputWithLabel,
   createButton,
+  createIconButton,
   createLink,
   createDiv,
   createParagraph,
   createTinyMCE,
 } from '../lib/createElements.js';
+import displayEditH2 from './displayEditH2.js';
 import saveNote from './saveNote.js';
 
 let app = document.querySelector('#app');
@@ -19,10 +21,22 @@ export default function editNote(noteId) {
     .then((res) => res.json())
     .then((note) => {
       let h2 = createH2(note.headline, 'headline');
+      let editBtn = createIconButton(`editH2Btn`, '', 'edit', 'flex-edit-btn');
+      let h2Div = createDiv('flex', 'h2Div');
+      h2Div.append(h2, editBtn);
       let description = createParagraph(note.description, '', 'description');
+      let editDescBtn = createIconButton(
+        `editDescBtn`,
+        '',
+        'edit',
+        'flex-edit-btn'
+      );
+      let descDiv = createDiv('flex');
+      descDiv.append(description, editDescBtn);
+
       let tinyMCE = createTinyMCE(note);
       let button = createButton('saveNoteBtn', 'Save Note', 'margin-top-1-rem');
-      app.append(h2, description, tinyMCE, button);
+      app.append(h2Div, descDiv, tinyMCE, button);
 
       tinymce.init({
         selector: 'textarea#tinyMCEEditor',
@@ -47,6 +61,9 @@ export default function editNote(noteId) {
 
       document.querySelector('#saveNoteBtn').addEventListener('click', () => {
         saveNote(noteId);
+      });
+      document.querySelector('#editH2Btn').addEventListener('click', () => {
+        displayEditH2(noteId);
       });
     });
 }

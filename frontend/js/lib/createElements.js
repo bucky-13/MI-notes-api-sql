@@ -1,3 +1,5 @@
+import createEditIcon from './createEditIcon.js';
+
 // pass in the text that will be displayed in the h2 element
 function createH2(text, id) {
   let h2 = document.createElement('h2');
@@ -37,12 +39,44 @@ function createInputWithLabel(type, id, spanText) {
   return label;
 }
 
+function createInputNoLabel(type, textContent, id, inputClass) {
+  let input = document.createElement('input');
+
+  input.setAttribute('type', type);
+  input.id = id;
+  input.value = textContent;
+  if (inputClass) {
+    input.classList.add(inputClass);
+  }
+
+  return input;
+}
+
 // first parameter: the Id of the button
 // second parameter: the text displayed in the button
 // thrid parameter: OPTIONAL. if a class is needed, add the class here
 function createButton(btnId, btnText, btnClass) {
   let btn = document.createElement('button');
   btn.textContent = btnText;
+  btn.id = btnId;
+  if (btnClass) {
+    btn.classList.add(btnClass);
+  }
+  return btn;
+}
+// first parameter: the Id of the button
+// second parameter: the text displayed in the button
+// third parameter: the icon for the button
+// fourth parameter: OPTIONAL. if a class is needed, add the class here
+function createIconButton(btnId, btnText, btnIconType, btnClass) {
+  let btn = document.createElement('button');
+  let btnIcon = createEditIcon(btnIconType);
+  if (btnText === '') {
+    btn.innerHTML = `${btnIcon}`;
+  } else {
+    let btnP = `<p>${btnText}</p>`;
+    btn.innerHTML = `${btnIcon} ${btnP}`;
+  }
   btn.id = btnId;
   if (btnClass) {
     btn.classList.add(btnClass);
@@ -64,10 +98,14 @@ function createLink(aId, aText, aClass) {
   return a;
 }
 
-function createDiv(divClass) {
+function createDiv(divClass, id) {
   let div = document.createElement('div');
   if (divClass) {
     div.classList.add(divClass);
+  }
+
+  if (id) {
+    div.id = id;
   }
 
   return div;
@@ -96,7 +134,9 @@ export {
   createH2,
   createH3,
   createInputWithLabel,
+  createInputNoLabel,
   createButton,
+  createIconButton,
   createLink,
   createDiv,
   createParagraph,
