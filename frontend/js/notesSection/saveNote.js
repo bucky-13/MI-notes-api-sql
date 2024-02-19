@@ -1,10 +1,27 @@
 import editNote from './editNote.js';
 
 export default function saveNote(noteId) {
-  console.log('I will save you!');
+  // console.log('I will save you!');
   let userId = Number(localStorage.getItem('userId'));
-  let headline = document.querySelector('#headline').textContent;
-  let description = document.querySelector('#description').textContent;
+
+  let headlineDOM = document.querySelector('#headline');
+  let headline = '';
+
+  if (headlineDOM.tagName === 'H2') {
+    headline = document.querySelector('#headline').textContent;
+  } else if (headlineDOM.tagName === 'INPUT') {
+    headline = document.querySelector('#headline').value;
+  }
+
+  let descriptionDOM = document.querySelector('#description');
+  let description = document.querySelector('#description');
+
+  if (descriptionDOM.tagName === 'H2') {
+    headline = document.querySelector('#description').textContent;
+  } else if (descriptionDOM.tagName === 'INPUT') {
+    headline = document.querySelector('#description').value;
+  }
+
   let textContent = document.querySelector('#tinyMCEEditor').value;
 
   let updatedNote = {
@@ -27,12 +44,12 @@ export default function saveNote(noteId) {
     .then((res) => res.json())
     .then((data) => {
       console.log('data', data);
-      if (data.changedRows) {
+      if (data.info) {
         editNote(noteId);
       } else {
         console.log(data.message);
       }
     });
 
-  console.log(updatedNote);
+  // console.log(updatedNote);
 }

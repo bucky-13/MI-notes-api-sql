@@ -9,7 +9,7 @@ import {
   createParagraph,
   createTinyMCE,
 } from '../lib/createElements.js';
-import displayEditH2 from './displayEditH2.js';
+import displayEditHeadline from './displayEditHeadline.js';
 import saveNote from './saveNote.js';
 
 let app = document.querySelector('#app');
@@ -63,7 +63,7 @@ export default function editNote(noteId) {
         saveNote(noteId);
       });
       document.querySelector('#editH2Btn').addEventListener('click', () => {
-        displayEditH2(noteId);
+        displayEditHeadline(noteId);
       });
     });
 }
