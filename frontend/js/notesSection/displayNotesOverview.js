@@ -5,7 +5,6 @@ import {
   createInputWithLabel,
   createButton,
   createIconButton,
-  createLink,
   createDiv,
   createParagraph,
 } from '../lib/createElements.js';

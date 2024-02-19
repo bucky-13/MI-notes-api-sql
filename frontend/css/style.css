@@ -156,6 +156,7 @@ button:hover {
 
 .navLink {
   color: #ffff88;
+  cursor: pointer;
 }
 .navLink:hover {
   color: #ff7b00;
