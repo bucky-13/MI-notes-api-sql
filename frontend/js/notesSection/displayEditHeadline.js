@@ -17,7 +17,7 @@ export default function displayEditHeadline(noteId) {
   h2Div.append(input, saveBtn);
   // console.log(h2content);
 
-  document
-    .querySelector('#saveHeadlineBtn')
-    .addEventListener('click', saveHeadline);
+  document.querySelector('#saveHeadlineBtn').addEventListener('click', () => {
+    saveHeadline(noteId);
+  });
 }

@@ -16,10 +16,10 @@ export default function saveNote(noteId) {
   let descriptionDOM = document.querySelector('#description');
   let description = document.querySelector('#description');
 
-  if (descriptionDOM.tagName === 'H2') {
-    headline = document.querySelector('#description').textContent;
+  if (descriptionDOM.tagName === 'P') {
+    description = document.querySelector('#description').textContent;
   } else if (descriptionDOM.tagName === 'INPUT') {
-    headline = document.querySelector('#description').value;
+    description = document.querySelector('#description').value;
   }
 
   let textContent = document.querySelector('#tinyMCEEditor').value;
@@ -31,6 +31,8 @@ export default function saveNote(noteId) {
     description: description,
     textContent: textContent,
   };
+
+  console.log(updatedNote);
 
   console.log(typeof textContent);
 
