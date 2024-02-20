@@ -94,10 +94,6 @@ router.put('/', (req, res, next) => {
     let headline = filterQuotes(req.body.headline);
     let description = filterQuotes(req.body.description);
     let textContent = filterQuotes(req.body.textContent);
-    // console.log(typeof textContent);
-
-    // let filteredTextContent = textContent.replace(/"/g, '""');
-    // console.log(filteredTextContent);
 
     let sql = `UPDATE notes SET headline="${headline}", description="${description}", textContent="${textContent}" WHERE noteId=${noteId} AND userId=${userId} AND deleted="0"`;
 
