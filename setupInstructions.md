@@ -2,8 +2,25 @@
 
 ### npm modules:
 
-In the root folder, run "npm i", this should put all node_modules in the correct place and make sure the script link in /frontend/index.html works properly.
+Run "npm i" in the root folder, the node_modules should end up in the root folder as well.
+
+### start backend server
+
+Run "nodemon start" in the root folder of the project
 
 ### .env file
 
-Place in the same spot as example.env, key & value pairs should be on it's learning where I turned in the assignment
+Place in the same spot as example.env (root folder), key & value pairs should be written on it's learning where I turned in the assignment. Except for SQL_PORT since that is the port you use on phpMyAdmin (or workbench) for localhost.
+
+### server and server data
+
+An export of the database should be available on It's Learning in attachments where I replied to this task. You know better than me how to import it :wink:
+
+### Run frontend client
+
+Open with Live server in VsCode, index.html is inside the frontend folder.
+
+### tinyMCE script(if it doesn't work)
+
+If the tinyMCE text editor on the frontend application doesn't work, check the path in the script tag on row 9 in index.html with src="/node_modules/tinymce/tinymce.min.js"  
+It should be correctly installed but if it's not, locate the folder that tinymce.min.js is located in inside node_modules and update the src path in index.html.
