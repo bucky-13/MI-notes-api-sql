@@ -23,7 +23,8 @@ function createH3(text, id) {
 // first parameter: the type of input (i.e. text, password etc)
 // second parameter: the id for the input
 // third parameter: the text displayed in the span (essentially the label)
-function createInputWithLabel(type, id, spanText) {
+// fourth parameter: OPTIONAL, value in input
+function createInputWithLabel(type, id, spanText, value) {
   let label = document.createElement('label');
   label.classList.add('form-label');
 
@@ -34,6 +35,10 @@ function createInputWithLabel(type, id, spanText) {
   input.setAttribute('type', type);
   input.classList.add('textfield');
   input.id = id;
+
+  if (value) {
+    input.value = value;
+  }
 
   label.append(span, input);
   return label;

@@ -6,6 +6,7 @@ import {
   createDiv,
   createParagraph,
 } from '../lib/createElements.js';
+import displayUpdateUser from './displayUpdateUser.js';
 let app = document.querySelector('#app');
 
 export default function displayUserinfo() {
@@ -23,10 +24,16 @@ export default function displayUserinfo() {
     let p3 = createParagraph(`User Id: ${userId}`);
     div.append(p1, p2, p3);
     let button = createButton(
-      'changeUserDataBtn',
+      'updateUserDataBtn',
       'Update your personal information (not functional yet)',
       'margin-top-1-rem'
     );
     app.append(h2, div, button);
+
+    document
+      .querySelector('#updateUserDataBtn')
+      .addEventListener('click', () => {
+        displayUpdateUser();
+      });
   }
 }
