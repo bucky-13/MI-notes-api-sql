@@ -1,5 +1,5 @@
 a {
-  color: #864414;
+  color: $color-primary;
   text-decoration: none;
 }
 
@@ -9,7 +9,7 @@ a:hover {
 }
 
 .navLink {
-  color: $color-text;
+  color: $color-primary;
   cursor: pointer;
 }
 

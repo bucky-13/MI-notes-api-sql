@@ -1,5 +1,6 @@
 .feedback-section {
-  background-color: white;
+  background-image: linear-gradient(#ffffff90, #ffffff90),
+    url('/frontend/images/navbarBackground.webp');
 }
 
 .feedback-container {
@@ -7,7 +8,7 @@
 }
 
 .msg-success {
-  color: green;
+  color: $color-primary-hover;
   line-height: 0;
 }
 
