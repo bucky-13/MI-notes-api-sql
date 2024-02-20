@@ -10,7 +10,8 @@ Run "nodemon start" in the root folder of the project
 
 ### .env file
 
-Place in the same spot as example.env (root folder), key & value pairs should be written on it's learning where I turned in the assignment. Except for SQL_PORT since that is the port you use on phpMyAdmin (or workbench) for localhost.
+Place in the same spot as example.env (root folder), key & value pairs instruction should be written on it's learning where I turned in the assignment.  
+There's also instructions in the example.env except for the KEY_OF_SALT since I think that one needs to be the same in order for password management to work.
 
 ### server and server data
 
