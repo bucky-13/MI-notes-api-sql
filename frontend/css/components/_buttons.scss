@@ -1,26 +1,36 @@
 button {
   background-color: $color-primary;
   padding: 0.5rem 1rem;
+  background-image: linear-gradient($color-primary-btn, $color-primary-btn),
+    url('/frontend/images/btnBgDark.webp');
   color: $color-primary-light;
   font-size: 1rem;
   border: none;
-  font-weight: 700;
+  font-weight: 500;
   border-radius: 5px;
-  box-shadow: 3px 3px 3px $color-text;
+  border: 2px solid $color-primary-border-btn;
+  font-family: 'IM Fell English', serif;
+  font-size: 1.1rem;
 }
 
 button:hover {
-  background-color: $color-primary-light;
-  color: $color-primary-hover;
+  border: 2px solid $color-hover-border-btn;
+  background-image: linear-gradient($color-hover-btn, $color-hover-btn),
+    url('/frontend/images/btnBgDark.webp');
+  color: white;
 }
 
 .btn-red {
-  background-color: #bd0000;
+  background-image: linear-gradient($color-red-btn, $color-red-btn),
+    url('/frontend/images/btnBgDark.webp');
+  border: 2px solid $color-red-border-btn;
 }
 
 .btn-red:hover {
-  background-color: red;
-  color: $color-primary-light;
+  background-image: linear-gradient($color-hover-red-btn, $color-hover-red-btn),
+    url('/frontend/images/btnBg.webp');
+  border: 2px solid $color-hover-red-border-btn;
+  color: white;
 }
 
 .flex-edit-btn {
@@ -42,5 +52,5 @@ button:hover {
   fill: $color-primary-light;
 }
 button:hover .edit-icon path {
-  fill: $color-primary-hover;
+  fill: white;
 }

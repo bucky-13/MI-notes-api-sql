@@ -1,0 +1,22 @@
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-text {
+  margin: -0.2rem;
+}
+
+.logo-top {
+  font-family: 'sherwood';
+  font-size: 1.6rem;
+}
+
+.logo-bottom {
+  font-size: 1.7rem;
+  font-weight: 900;
+  font-family: 'IM Fell English', serif;
+  letter-spacing: 0.1rem;
+}

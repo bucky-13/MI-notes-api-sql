@@ -1,11 +1,14 @@
 body {
   margin: 0;
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font-family: 'IM Fell English', serif;
   font-size: 1.1rem;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  background-image: linear-gradient(#ffffff90, #ffffff90),
+    url('/frontend/images/candlekeepBackground.webp');
+  //   background-size: cover;
   background-color: $color-bg-light;
 }
 
@@ -20,8 +23,12 @@ nav {
   justify-content: center;
   align-items: center;
   height: 80px;
-  background-color: #864414;
+  //   background-color: #864414;
+  background-image: linear-gradient(#ffffff60, #ffffff60),
+    url('/frontend/images/navbarBackground.webp');
+  background-size: contain;
   width: 100%;
+  border-bottom: 1px solid black;
 }
 
 main {

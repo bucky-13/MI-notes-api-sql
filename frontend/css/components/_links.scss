@@ -9,10 +9,11 @@ a:hover {
 }
 
 .navLink {
-  color: $color-primary-light;
+  color: $color-text;
   cursor: pointer;
 }
 
 .navLink:hover {
-  color: $color-primary;
+  color: $color-primary-hover;
+  text-decoration: underline 2px;
 }

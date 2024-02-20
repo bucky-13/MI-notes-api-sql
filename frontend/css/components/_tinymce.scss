@@ -1,7 +1,10 @@
 .tiny-mce-content {
-  background-color: white;
+  //   background-color: white;
+  background-image: linear-gradient(#ffffff40, #ffffff40),
+    url('/frontend/images/navbarBackground.webp');
+
   padding: 2rem;
-  border: 1px solid $color-text;
+  border: 2px solid $color-text;
   border-radius: 8px;
-  box-shadow: 3px 3px 3px $color-text;
+  //   box-shadow: 3px 3px 3px $color-text;
 }
