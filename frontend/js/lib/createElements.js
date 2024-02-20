@@ -1,4 +1,4 @@
-import createEditIcon from './createEditIcon.js';
+import createIcon from './createIcons.js';
 
 // pass in the text that will be displayed in the h2 element
 function createH2(text, id) {
@@ -75,7 +75,7 @@ function createButton(btnId, btnText, btnClass) {
 // fourth parameter: OPTIONAL. if a class is needed, add the class here
 function createIconButton(btnId, btnText, btnIconType, btnClass) {
   let btn = document.createElement('button');
-  let btnIcon = createEditIcon(btnIconType);
+  let btnIcon = createIcon(btnIconType);
   if (btnText === '') {
     btn.innerHTML = `${btnIcon}`;
   } else {

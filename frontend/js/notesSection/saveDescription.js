@@ -1,17 +1,10 @@
 import {
-  createH2,
-  createH3,
-  createInputWithLabel,
-  createButton,
   createIconButton,
-  createLink,
   createDiv,
   createParagraph,
-  createTinyMCE,
 } from '../lib/createElements.js';
 import { displayFeedbackContainer } from '../lib/userFeedback.js';
 import displayEditDescription from './DisplayEditDescription.js';
-import saveNote from './saveNote.js';
 
 export default function saveDescription(noteId) {
   let userId = Number(localStorage.getItem('userId'));
@@ -44,8 +37,6 @@ export default function saveDescription(noteId) {
     textContent: textContent,
   };
 
-  console.log(typeof textContent);
-
   fetch('http://localhost:3000/notes/', {
     method: 'PUT',
     headers: {
@@ -55,7 +46,6 @@ export default function saveDescription(noteId) {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log('data', data);
       if (data.info) {
         fetch(`http://localhost:3000/notes/${userId}/${noteId}`)
           .then((res) => res.json())

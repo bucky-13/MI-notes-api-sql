@@ -11,17 +11,9 @@ function displayFeedbackContainer(message, pClass) {
   feedbackSection.append(div);
 }
 
-function hideFeedbackContainer() {
-  feedbackSection.innerHTML = '';
-}
-
 function clearAppPlusFeedbackContainer() {
   app.innerHTML = '';
   feedbackSection.innerHTML = '';
 }
 
-export {
-  displayFeedbackContainer,
-  hideFeedbackContainer,
-  clearAppPlusFeedbackContainer,
-};
+export { displayFeedbackContainer, clearAppPlusFeedbackContainer };

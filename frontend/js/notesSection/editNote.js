@@ -1,10 +1,7 @@
 import {
   createH2,
-  createH3,
-  createInputWithLabel,
   createButton,
   createIconButton,
-  createLink,
   createDiv,
   createParagraph,
   createTinyMCE,

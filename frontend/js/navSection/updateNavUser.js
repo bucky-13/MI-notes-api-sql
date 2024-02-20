@@ -16,6 +16,5 @@ export default function updateNavUser() {
     navUserBtn.textContent = 'Log In / Create Account';
     navUserBtn.removeEventListener('click', logoutUser);
     navUserBtn.addEventListener('click', displayLogin);
-    // console.log(navUsername);
   }
 }

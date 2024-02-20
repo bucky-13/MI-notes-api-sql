@@ -1,11 +1,7 @@
 import {
   createH2,
-  createH3,
   createInputWithLabel,
   createButton,
-  createLink,
-  createDiv,
-  createParagraph,
 } from '../lib/createElements.js';
 import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import createNote from './createNote.js';

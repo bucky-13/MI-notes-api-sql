@@ -2,7 +2,6 @@ import { displayFeedbackContainer } from '../lib/userFeedback.js';
 import editNote from './editNote.js';
 
 export default function saveNote(noteId) {
-  // console.log('I will save you!');
   let userId = Number(localStorage.getItem('userId'));
 
   let headlineDOM = document.querySelector('#headline');
@@ -33,10 +32,6 @@ export default function saveNote(noteId) {
     textContent: textContent,
   };
 
-  console.log(updatedNote);
-
-  console.log(typeof textContent);
-
   fetch('http://localhost:3000/notes/', {
     method: 'PUT',
     headers: {
@@ -53,6 +48,4 @@ export default function saveNote(noteId) {
         displayFeedbackContainer(data.message, 'msg-failure');
       }
     });
-
-  // console.log(updatedNote);
 }

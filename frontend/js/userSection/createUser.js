@@ -12,8 +12,6 @@ export default function createUser() {
     userPassword: userPassword.value,
   };
 
-  console.log(user);
-
   fetch('http://localhost:3000/users/', {
     method: 'POST',
     headers: {

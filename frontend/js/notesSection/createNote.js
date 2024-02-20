@@ -25,6 +25,4 @@ export default function createNote(headline, description) {
         displayFeedbackContainer(data.message, 'msg-failure');
       }
     });
-
-  console.log(newNote);
 }

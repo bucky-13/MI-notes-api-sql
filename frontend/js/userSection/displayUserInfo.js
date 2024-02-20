@@ -1,15 +1,10 @@
 import {
   createH2,
-  createInputWithLabel,
   createButton,
-  createLink,
   createDiv,
   createParagraph,
 } from '../lib/createElements.js';
-import {
-  clearAppPlusFeedbackContainer,
-  hideFeedbackContainer,
-} from '../lib/userFeedback.js';
+import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import displayUpdateUser from './displayUpdateUser.js';
 let app = document.querySelector('#app');
 

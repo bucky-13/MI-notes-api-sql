@@ -1,8 +1,6 @@
-import createEditIcon from '../lib/createEditIcon.js';
 import {
   createH2,
   createH3,
-  createInputWithLabel,
   createButton,
   createIconButton,
   createDiv,
@@ -54,8 +52,7 @@ export default function displayNotesOverview() {
             'edit',
             'flex-edit-btn'
           );
-          // let editIcon = createEditIcon();
-          // editBtn.innerHTML = editIcon + 'Edit ';
+
           let deleteBtn = createButton(
             `delete-btn-${note.noteId}`,
             'Delete',
