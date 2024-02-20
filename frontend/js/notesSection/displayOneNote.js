@@ -7,6 +7,7 @@ import {
   createDiv,
   createParagraph,
 } from '../lib/createElements.js';
+import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import displayCreateNote from './displayCreateNote.js';
 import displayDeleteNote from './displayDeleteNote.js';
 import editNote from './editNote.js';
@@ -15,7 +16,7 @@ let app = document.querySelector('#app');
 
 export default function displayOneNote(noteId) {
   let userId = localStorage.getItem('userId');
-  app.innerHTML = '';
+  clearAppPlusFeedbackContainer();
   fetch(`http://localhost:3000/notes/${userId}/${noteId}`)
     .then((res) => res.json())
     .then((note) => {

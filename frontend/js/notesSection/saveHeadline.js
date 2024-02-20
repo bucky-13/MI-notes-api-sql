@@ -9,6 +9,7 @@ import {
   createParagraph,
   createTinyMCE,
 } from '../lib/createElements.js';
+import { displayFeedbackContainer } from '../lib/userFeedback.js';
 import displayEditHeadline from './displayEditHeadline.js';
 import saveNote from './saveNote.js';
 
@@ -77,7 +78,7 @@ export default function saveHeadline(noteId) {
               });
           });
       } else {
-        console.log(data.message);
+        displayFeedbackContainer(data.message, 'msg-failure');
       }
     });
 }

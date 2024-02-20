@@ -1,5 +1,4 @@
-import updateNavUser from '../navSection/updateNavUser.js';
-import displayNotesOverview from '../notesSection/displayNotesOverview.js';
+import { displayFeedbackContainer } from '../lib/userFeedback.js';
 import loginUser from './loginUser.js';
 
 export default function createUser() {
@@ -26,8 +25,12 @@ export default function createUser() {
     .then((data) => {
       if (data.insertId) {
         loginUser();
+        displayFeedbackContainer(
+          'Account successfully created.',
+          'msg-success'
+        );
       } else {
-        console.log(data.message);
+        displayFeedbackContainer(data.message, 'msg-failure');
       }
     });
 }

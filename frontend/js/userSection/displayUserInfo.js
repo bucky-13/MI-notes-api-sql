@@ -6,6 +6,10 @@ import {
   createDiv,
   createParagraph,
 } from '../lib/createElements.js';
+import {
+  clearAppPlusFeedbackContainer,
+  hideFeedbackContainer,
+} from '../lib/userFeedback.js';
 import displayUpdateUser from './displayUpdateUser.js';
 let app = document.querySelector('#app');
 
@@ -15,7 +19,7 @@ export default function displayUserinfo() {
   let userEmail = localStorage.getItem('userEmail');
 
   if (userId) {
-    app.innerHTML = '';
+    clearAppPlusFeedbackContainer();
     let h2 = createH2('User information about: ' + userName);
     let div = createDiv('flex-column');
     let p1 = createParagraph(`User Name: ${userName}`);
@@ -24,7 +28,7 @@ export default function displayUserinfo() {
     div.append(p1, p2, p3);
     let button = createButton(
       'updateUserDataBtn',
-      'Update your personal information (not functional yet)',
+      'Update your personal information',
       'margin-top-1-rem'
     );
     app.append(h2, div, button);

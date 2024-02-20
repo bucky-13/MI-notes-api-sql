@@ -1,3 +1,4 @@
+import { displayFeedbackContainer } from '../lib/userFeedback.js';
 import updateNavUser from '../navSection/updateNavUser.js';
 import displayNotesOverview from '../notesSection/displayNotesOverview.js';
 
@@ -25,8 +26,9 @@ export default function loginUser() {
         localStorage.setItem('userEmail', data.userEmail);
         updateNavUser();
         displayNotesOverview();
+        displayFeedbackContainer('Login successful.', 'msg-success');
       } else {
-        console.log(data.message);
+        displayFeedbackContainer(data.message, 'msg-failure');
       }
     });
 }

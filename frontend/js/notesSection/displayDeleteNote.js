@@ -7,13 +7,14 @@ import {
   createDiv,
   createParagraph,
 } from '../lib/createElements.js';
+import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import deleteNote from './deleteNote.js';
 import displayOneNote from './displayOneNote.js';
 
 let app = document.querySelector('#app');
 
 export default function displayDeleteNote(noteId, headline, description) {
-  app.innerHTML = '';
+  clearAppPlusFeedbackContainer();
   let h2 = createH2('Do you really want to delete this note?');
   let h3 = createH3(headline);
   let p = createParagraph(description);

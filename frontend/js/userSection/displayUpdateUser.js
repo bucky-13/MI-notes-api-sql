@@ -6,11 +6,12 @@ import {
   createDiv,
   createParagraph,
 } from '../lib/createElements.js';
+import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import updateUser from './updateUser.js';
 let app = document.querySelector('#app');
 
 export default function displayUpdateUser() {
-  app.innerHTML = '';
+  clearAppPlusFeedbackContainer();
   let userName = localStorage.getItem('userName');
   let userEmail = localStorage.getItem('userEmail');
 

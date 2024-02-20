@@ -9,6 +9,7 @@ import {
   createParagraph,
   createTinyMCE,
 } from '../lib/createElements.js';
+import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import displayEditDescription from './DisplayEditDescription.js';
 import displayEditHeadline from './displayEditHeadline.js';
 import saveNote from './saveNote.js';
@@ -17,7 +18,7 @@ let app = document.querySelector('#app');
 
 export default function editNote(noteId) {
   let userId = localStorage.getItem('userId');
-  app.innerHTML = '';
+  clearAppPlusFeedbackContainer();
   fetch(`http://localhost:3000/notes/${userId}/${noteId}`)
     .then((res) => res.json())
     .then((note) => {

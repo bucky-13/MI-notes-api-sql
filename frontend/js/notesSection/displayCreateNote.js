@@ -7,12 +7,13 @@ import {
   createDiv,
   createParagraph,
 } from '../lib/createElements.js';
+import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import createNote from './createNote.js';
 
 let app = document.querySelector('#app');
 
 export default function displayCreateNote() {
-  app.innerHTML = '';
+  clearAppPlusFeedbackContainer();
 
   let h2 = createH2('Create New Note');
   let inputHeadline = createInputWithLabel(
@@ -37,6 +38,5 @@ export default function displayCreateNote() {
 
   document.querySelector('#createNoteBtn').addEventListener('click', () => {
     createNote(headline.value, description.value);
-    // console.log(headline.value + ', ' + description.value);
   });
 }

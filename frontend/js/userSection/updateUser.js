@@ -1,3 +1,4 @@
+import { displayFeedbackContainer } from '../lib/userFeedback.js';
 import updateNavUser from '../navSection/updateNavUser.js';
 import displayUserinfo from './displayUserInfo.js';
 
@@ -33,8 +34,12 @@ export default function updateUser() {
         localStorage.setItem('userEmail', data.userEmail);
         updateNavUser();
         displayUserinfo();
+        displayFeedbackContainer(
+          'Your information has been successfully updated!',
+          'msg-success'
+        );
       } else {
-        console.log(data.message);
+        displayFeedbackContainer(data.message, 'msg-failure');
       }
     });
 }

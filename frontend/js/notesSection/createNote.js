@@ -1,3 +1,4 @@
+import { displayFeedbackContainer } from '../lib/userFeedback.js';
 import editNote from './editNote.js';
 
 export default function createNote(headline, description) {
@@ -21,7 +22,7 @@ export default function createNote(headline, description) {
       if (data.insertId) {
         editNote(data.insertId);
       } else {
-        console.log(data.message);
+        displayFeedbackContainer(data.message, 'msg-failure');
       }
     });
 

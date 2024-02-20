@@ -1,3 +1,4 @@
+import { displayFeedbackContainer } from '../lib/userFeedback.js';
 import displayNotesOverview from './displayNotesOverview.js';
 
 export default function deleteNote(noteId) {
@@ -18,8 +19,9 @@ export default function deleteNote(noteId) {
     .then((data) => {
       if (data.changedRows) {
         displayNotesOverview();
+        displayFeedbackContainer('Note successfully deleted', 'msg-success');
       } else {
-        console.log(data.message);
+        displayFeedbackContainer(data.message, 'msg-failure');
       }
     });
 }

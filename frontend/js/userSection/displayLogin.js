@@ -4,13 +4,14 @@ import {
   createButton,
   createLink,
 } from '../lib/createElements.js';
+import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import displayCreateUser from './displayCreateUser.js';
 import loginUser from './loginUser.js';
 
 let app = document.querySelector('#app');
 
 export default function displayLogin() {
-  app.innerHTML = '';
+  clearAppPlusFeedbackContainer();
   let h2 = createH2('Login');
   let emailInput = createInputWithLabel('email', 'userEmail', 'Email:');
   let passwordInput = createInputWithLabel(

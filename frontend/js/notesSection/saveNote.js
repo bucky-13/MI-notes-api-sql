@@ -1,3 +1,4 @@
+import { displayFeedbackContainer } from '../lib/userFeedback.js';
 import editNote from './editNote.js';
 
 export default function saveNote(noteId) {
@@ -47,8 +48,9 @@ export default function saveNote(noteId) {
     .then((data) => {
       if (data.info) {
         editNote(noteId);
+        displayFeedbackContainer('Note saved successfully!', 'msg-success');
       } else {
-        console.log(data.message);
+        displayFeedbackContainer(data.message, 'msg-failure');
       }
     });
 

@@ -6,11 +6,12 @@ import {
   createLink,
 } from '../lib/createElements.js';
 import createUser from './createUser.js';
+import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 
 let app = document.querySelector('#app');
 
 export default function displayCreateUser() {
-  app.innerHTML = '';
+  clearAppPlusFeedbackContainer();
   let h2 = createH2('Create new Account');
   let nameInput = createInputWithLabel('text', 'userName', 'User name:');
   let emailInput = createInputWithLabel('email', 'userEmail', 'Email:');

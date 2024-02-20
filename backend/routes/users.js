@@ -128,7 +128,7 @@ router.put('/updateUser', (req, res, next) => {
 
       if (oldPassword !== storedPassword) {
         res.status(401).json({
-          message: 'Login failed, email or password are incorrect.',
+          message: 'update failed, password is incorrect.',
         });
       } else {
         let secondSql = `SELECT * FROM users WHERE NOT userId="${userId}" AND (userName="${userName}" OR userEmail="${userEmail}")`;

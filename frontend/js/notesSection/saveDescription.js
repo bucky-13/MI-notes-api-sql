@@ -9,6 +9,7 @@ import {
   createParagraph,
   createTinyMCE,
 } from '../lib/createElements.js';
+import { displayFeedbackContainer } from '../lib/userFeedback.js';
 import displayEditDescription from './DisplayEditDescription.js';
 import saveNote from './saveNote.js';
 
@@ -82,7 +83,7 @@ export default function saveDescription(noteId) {
               });
           });
       } else {
-        console.log(data.message);
+        displayFeedbackContainer(data.message, 'msg-failure');
       }
     });
 }
