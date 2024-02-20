@@ -6,6 +6,7 @@ import {
   createDiv,
   createParagraph,
 } from '../lib/createElements.js';
+import updateUser from './updateUser.js';
 let app = document.querySelector('#app');
 
 export default function displayUpdateUser() {
@@ -60,6 +61,6 @@ export default function displayUpdateUser() {
   );
 
   document.querySelector('#updateUserBtn').addEventListener('click', () => {
-    console.log('update me!');
+    updateUser();
   });
 }

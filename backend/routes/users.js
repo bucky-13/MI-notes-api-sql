@@ -104,7 +104,7 @@ router.post('/login', (req, res, next) => {
 });
 
 // UPDATE USER DETAILS
-router.post('/updateUser', (req, res, next) => {
+router.put('/updateUser', (req, res, next) => {
   req.app.locals.con.connect(function (err) {
     if (err) {
       console.log(err);
@@ -121,8 +121,12 @@ router.post('/updateUser', (req, res, next) => {
       if (err) {
         console.log(err);
       }
+      let storedPassword = CryptoJS.AES.decrypt(
+        user[0].userPassword,
+        process.env.KEY_OF_SALT
+      ).toString(CryptoJS.enc.Utf8);
 
-      if (oldPassword !== user[0].userPassword) {
+      if (oldPassword !== storedPassword) {
         res.status(401).json({
           message: 'Login failed, email or password are incorrect.',
         });
@@ -150,7 +154,11 @@ router.post('/updateUser', (req, res, next) => {
               if (err) {
                 console.log(err);
               }
-              res.json(result);
+              // RETRIEVE UPDATED USER INFORMATION TO SEND BACK AS A RESPONSE
+              let fourthSql = `SELECT userId, userName, userEmail FROM users WHERE userId="${userId}"`;
+              req.app.locals.con.query(fourthSql, function (err, updatedUser) {
+                res.json(updatedUser[0]);
+              });
             });
             // console.log('yay');
           }

@@ -45,7 +45,6 @@ export default function saveNote(noteId) {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log('data', data);
       if (data.info) {
         editNote(noteId);
       } else {

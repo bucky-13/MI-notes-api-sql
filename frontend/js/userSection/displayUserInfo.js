@@ -16,7 +16,6 @@ export default function displayUserinfo() {
 
   if (userId) {
     app.innerHTML = '';
-    console.log('you are logged in');
     let h2 = createH2('User information about: ' + userName);
     let div = createDiv('flex-column');
     let p1 = createParagraph(`User Name: ${userName}`);
