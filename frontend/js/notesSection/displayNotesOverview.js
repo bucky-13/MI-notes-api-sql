@@ -49,8 +49,8 @@ export default function displayNotesOverview() {
             (date.getMonth() < 10 ? '0' : '') + date.getMonth()
           }-${(date.getDay() < 10 ? '0' : '') + date.getDay()}`;
 
-          let pText = 'Created: ' + yearMonthDay + ', ' + time;
-          let p = createParagraph(pText);
+          let pText = `<span class="bold">Created:</span><br> ${yearMonthDay}, ${time}`;
+          let p = createParagraph(pText, 'alignment-right');
 
           let viewBtn = createIconButton(
             `view-btn-${note.noteId}`,

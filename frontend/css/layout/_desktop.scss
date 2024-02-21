@@ -94,7 +94,7 @@ main {
 
 .notes-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 105px 100px 120px 0.8fr;
+  grid-template-columns: 1fr 1.5fr 105px 100px 120px 140px;
   align-items: center;
   gap: 16px;
   width: 90%;
@@ -103,6 +103,47 @@ main {
   padding-right: 1rem;
   background-image: linear-gradient(#ffffff90, #ffffff90),
     url('/frontend/images/navbarBackground.webp');
+}
+
+.view-note-btns {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding-top: 2rem;
+  margin-top: 1.5rem;
+  border-top: 1px dashed black;
+}
+
+.delete-note-btns {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding-top: 2rem;
+}
+
+.viewNoteP {
+  border-bottom: 1px dashed black;
+  border-top: 1px dashed black;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.view-note-text-content-container {
+  padding-top: 2rem;
+}
+
+.alignment-right {
+  text-align: right;
+}
+
+.bold {
+  font-weight: 700;
 }
 
 .margin-top-1-rem {

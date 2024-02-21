@@ -4,7 +4,9 @@
     url('/frontend/images/navbarBackground.webp');
 
   padding: 2rem;
-  border: 2px solid $color-text;
-  border-radius: 8px;
-  //   box-shadow: 3px 3px 3px $color-text;
+  border: 1px solid $color-text;
+  min-width: 600px;
+  width: 80%;
+  max-width: 1000px;
+  margin-top: 2rem;
 }

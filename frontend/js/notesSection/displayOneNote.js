@@ -16,7 +16,9 @@ export default function displayOneNote(noteId) {
   fetch(`http://localhost:3000/notes/${userId}/${noteId}`)
     .then((res) => res.json())
     .then((note) => {
-      let btnDiv = createDiv('flex');
+      let fullNoteDiv = createDiv('tiny-mce-content');
+
+      let btnDiv = createDiv('view-note-btns');
       let editButton = createButton('editNoteBtn', 'Edit Note');
       let deleteButton = createButton(
         'deleteNoteBtn',
@@ -26,10 +28,12 @@ export default function displayOneNote(noteId) {
       btnDiv.append(editButton, deleteButton);
 
       let h2 = createH2(note.headline);
-      let description = createParagraph(note.description);
-      let div = createDiv('tiny-mce-content');
+      h2.classList.add('view-note-h2');
+      let description = createParagraph(note.description, 'viewNoteP');
+      let div = createDiv('view-note-text-content-container');
       div.innerHTML = note.textContent;
-      app.append(btnDiv, h2, description, div);
+      fullNoteDiv.append(h2, description, div, btnDiv);
+      app.append(fullNoteDiv);
 
       document.querySelector(`#editNoteBtn`).addEventListener('click', () => {
         editNote(noteId);

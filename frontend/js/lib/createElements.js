@@ -121,7 +121,7 @@ function createDiv(divClass, id) {
 
 function createParagraph(pText, pClass, pId) {
   let p = document.createElement('p');
-  p.textContent = pText;
+  p.innerHTML = pText;
   if (pClass) {
     p.classList.add(pClass);
   }

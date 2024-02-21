@@ -16,7 +16,7 @@ export default function displayDeleteNote(noteId, headline, description) {
   let h2 = createH2('Do you really want to delete this note?');
   let h3 = createH3(headline);
   let p = createParagraph(description);
-  let div = createDiv('flex');
+  let div = createDiv('delete-note-btns');
   let btnReturn = createButton('viewNote', 'No, view the note instead');
   let btnDelete = createButton(
     'deleteNote',
@@ -24,8 +24,11 @@ export default function displayDeleteNote(noteId, headline, description) {
     'btn-red'
   );
 
+  let fullNoteDiv = createDiv('tiny-mce-content');
+  fullNoteDiv.append(h3, p);
+
   div.append(btnReturn, btnDelete);
-  app.append(h2, h3, p, div);
+  app.append(h2, fullNoteDiv, div);
 
   document.querySelector('#viewNote').addEventListener('click', () => {
     displayOneNote(noteId);
