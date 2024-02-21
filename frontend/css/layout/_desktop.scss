@@ -183,7 +183,7 @@ main {
   grid-template-columns: 60% 40%;
   padding: 2rem;
   justify-content: center;
-  background-image: linear-gradient(#ffffff90, #ffffff90),
+  background-image: linear-gradient(#ffffff40, #ffffff40),
     url('/frontend/images/navbarBackground.webp');
   align-items: start;
   border: 1px solid black;
@@ -221,7 +221,9 @@ main {
 }
 
 .italic {
+  text-align: right;
   font-style: italic;
+  padding-right: 1rem;
 }
 
 .bold {

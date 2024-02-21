@@ -24,6 +24,7 @@ export default function displayAboutSection() {
   let p2 = createParagraph(secondP);
   let p3 = createParagraph(thirdP);
   let p4 = createParagraph('by Volothamp Geddarm', 'italic');
+
   div.append(h2, p1, image, p2, p3, p4);
   app.append(div);
   console.log('about');
