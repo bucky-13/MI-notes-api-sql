@@ -3,6 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // border: 1px dashed black;
+  background-color: #ffffff80;
+  padding: 0.6rem 1rem;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 .logo-text {
@@ -12,11 +17,13 @@
 .logo-top {
   font-family: 'sherwood';
   font-size: 1.6rem;
+  color: $color-primary-border-btn;
 }
 
 .logo-bottom {
-  font-size: 1.7rem;
-  font-weight: 900;
-  font-family: 'IM Fell English', serif;
-  letter-spacing: 0.1rem;
+  font-size: 1.6rem;
+  // font-weight: 900;
+  font-family: 'sherwood';
+  color: $color-hover-border-btn;
+  // letter-spacing: 0.1rem;
 }

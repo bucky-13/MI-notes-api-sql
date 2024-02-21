@@ -90,6 +90,13 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(#ffffff90, #ffffff90),
+    url('/frontend/images/navbarBackground.webp');
+  border: 1px solid black;
+  width: 50%;
+  min-width: 500px;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
 }
 
 .notes-grid {
@@ -159,6 +166,15 @@ main {
   border-bottom: 1px dashed black;
   border-top: 1px dashed black;
   padding: 1rem 0;
+  text-align: center;
+}
+
+.user-info-update-div {
+  background-image: linear-gradient(#ffffff90, #ffffff90),
+    url('/frontend/images/navbarBackground.webp');
+  border: 1px solid black;
+  margin-bottom: 16px;
+  width: 817px;
   text-align: center;
 }
 

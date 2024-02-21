@@ -3,6 +3,7 @@ import {
   createInputWithLabel,
   createButton,
   createParagraph,
+  createDiv,
 } from '../lib/createElements.js';
 import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import updateUser from './updateUser.js';
@@ -33,9 +34,11 @@ export default function displayUpdateUser() {
     'New Password: (optional) '
   );
 
+  let div = createDiv('user-info-update-div');
   let p = createParagraph(
     'To update your new user information, type in your old password.'
   );
+  div.append(p);
 
   let oldPasswordInput = createInputWithLabel(
     'password',
@@ -54,7 +57,7 @@ export default function displayUpdateUser() {
     userNameInput,
     userEmailInput,
     newPasswordInput,
-    p,
+    div,
     oldPasswordInput,
     updateUserBtn
   );
