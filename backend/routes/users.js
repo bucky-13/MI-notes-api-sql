@@ -32,6 +32,13 @@ router.post('/', function (req, res, next) {
     let userEmail = req.body.userEmail;
     //  ADD password encryption later on
     let userPassword = req.body.userPassword;
+
+    if (userName == '' || userEmail == '' || userPassword == '') {
+      res.status(409).json({
+        message:
+          'You need to fill in all fields correctly to create an account',
+      });
+    }
     let encryptedPw = CryptoJS.AES.encrypt(
       userPassword,
       process.env.KEY_OF_SALT
