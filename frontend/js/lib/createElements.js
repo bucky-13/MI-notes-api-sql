@@ -73,7 +73,7 @@ function createButton(btnId, btnText, btnClass) {
 // second parameter: the text displayed in the button
 // third parameter: the icon for the button
 // fourth parameter: OPTIONAL. if a class is needed, add the class here
-function createIconButton(btnId, btnText, btnIconType, btnClass) {
+function createIconButton(btnId, btnText, btnIconType, btnClass, btnClass2) {
   let btn = document.createElement('button');
   let btnIcon = createIcon(btnIconType);
   if (btnText === '') {
@@ -85,6 +85,9 @@ function createIconButton(btnId, btnText, btnIconType, btnClass) {
   btn.id = btnId;
   if (btnClass) {
     btn.classList.add(btnClass);
+  }
+  if (btnClass2) {
+    btn.classList.add(btnClass2);
   }
   return btn;
 }

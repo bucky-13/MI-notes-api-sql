@@ -1,6 +1,8 @@
 .feedback-section {
   background-image: linear-gradient(#ffffff90, #ffffff90),
     url('/frontend/images/navbarBackground.webp');
+  border: 1px solid black;
+  border-top: none;
 }
 
 .feedback-container {

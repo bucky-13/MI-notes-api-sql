@@ -19,10 +19,16 @@ export default function displayNotesOverview() {
   clearAppPlusFeedbackContainer();
   if (userId) {
     let divTop = createDiv('flex');
-    let h2 = createH2('Look at all these notes! :D');
-    let button = createButton('createNoteBtn', 'Create New Note');
+    let divBottom = createDiv('notes-overview-flex');
+    let h2 = createH2('Overview notes');
+    let button = createIconButton(
+      'createNoteBtn',
+      'Create New Note',
+      'newIcon',
+      'flex-edit-btn'
+    );
     divTop.append(h2, button);
-    app.append(divTop);
+    app.append(divTop, divBottom);
     document
       .querySelector('#createNoteBtn')
       .addEventListener('click', displayCreateNote);
@@ -31,7 +37,7 @@ export default function displayNotesOverview() {
       .then((res) => res.json())
       .then((data) => {
         data.map((note) => {
-          let div = createDiv('whiteboard');
+          let div = createDiv('notes-grid');
 
           let h3 = createH3(note.headline, `note-${note.noteId}`);
           let description = createParagraph(note.description);
@@ -45,22 +51,29 @@ export default function displayNotesOverview() {
 
           let pText = 'Created: ' + yearMonthDay + ', ' + time;
           let p = createParagraph(pText);
-          let viewBtn = createButton(`view-btn-${note.noteId}`, 'View');
+
+          let viewBtn = createIconButton(
+            `view-btn-${note.noteId}`,
+            'View',
+            'search',
+            'flex-edit-btn'
+          );
           let editBtn = createIconButton(
             `edit-btn-${note.noteId}`,
             'Edit',
             'edit',
             'flex-edit-btn'
           );
-
-          let deleteBtn = createButton(
+          let deleteBtn = createIconButton(
             `delete-btn-${note.noteId}`,
             'Delete',
+            'deleteIcon',
+            'flex-edit-btn',
             'btn-red'
           );
 
           div.append(h3, description, viewBtn, editBtn, deleteBtn, p);
-          app.append(div);
+          divBottom.append(div);
           document
             .querySelector(`#view-btn-${note.noteId}`)
             .addEventListener('click', () => {
