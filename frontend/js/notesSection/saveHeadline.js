@@ -50,17 +50,19 @@ export default function saveHeadline(noteId) {
         fetch(`http://localhost:3000/notes/${userId}/${noteId}`)
           .then((res) => res.json())
           .then((note) => {
+            let fullNoteDiv = document.querySelector('#fullNoteDiv');
             document.querySelector('#h2Div').remove();
             let h2 = createH2(note.headline, 'headline');
+            h2.classList.add('edit-note-h2');
             let editBtn = createIconButton(
               `editH2Btn`,
               '',
               'edit',
               'flex-edit-btn'
             );
-            let h2Div = createDiv('flex', 'h2Div');
+            let h2Div = createDiv('edit-h2-div', 'h2Div');
             h2Div.append(h2, editBtn);
-            app.prepend(h2Div);
+            fullNoteDiv.prepend(h2Div);
             document
               .querySelector('#editH2Btn')
               .addEventListener('click', () => {

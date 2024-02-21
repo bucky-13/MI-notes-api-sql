@@ -50,6 +50,7 @@ export default function saveDescription(noteId) {
         fetch(`http://localhost:3000/notes/${userId}/${noteId}`)
           .then((res) => res.json())
           .then((note) => {
+            let fullNoteDiv = document.querySelector('#fullNoteDiv');
             document.querySelector('#descDiv').remove();
             let description = createParagraph(
               note.description,
@@ -62,10 +63,10 @@ export default function saveDescription(noteId) {
               'edit',
               'flex-edit-btn'
             );
-            let descDiv = createDiv('flex', 'descDiv');
+            let descDiv = createDiv('edit-desc-div', 'descDiv');
             descDiv.append(description, editDescBtn);
             let tinyMCEEditor = document.querySelector('#tinyMCEEditor');
-            app.insertBefore(descDiv, tinyMCEEditor);
+            fullNoteDiv.insertBefore(descDiv, tinyMCEEditor);
             document
               .querySelector('#editDescBtn')
               .addEventListener('click', () => {

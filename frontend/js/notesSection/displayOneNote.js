@@ -1,12 +1,13 @@
 import {
   createH2,
   createButton,
+  createIconButton,
   createDiv,
   createParagraph,
 } from '../lib/createElements.js';
 import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import displayDeleteNote from './displayDeleteNote.js';
-import editNote from './editNote.js';
+import editNote from './displayEditNote.js';
 
 let app = document.querySelector('#app');
 
@@ -17,14 +18,21 @@ export default function displayOneNote(noteId) {
     .then((res) => res.json())
     .then((note) => {
       let fullNoteDiv = createDiv('tiny-mce-content');
-
       let btnDiv = createDiv('view-note-btns');
-      let editButton = createButton('editNoteBtn', 'Edit Note');
-      let deleteButton = createButton(
-        'deleteNoteBtn',
+      let editButton = createIconButton(
+        `editNoteBtn`,
+        'Edit Note',
+        'edit',
+        'flex-edit-btn'
+      );
+      let deleteButton = createIconButton(
+        `deleteNoteBtn`,
         'Delete Note',
+        'deleteIcon',
+        'flex-edit-btn',
         'btn-red'
       );
+
       btnDiv.append(editButton, deleteButton);
 
       let h2 = createH2(note.headline);

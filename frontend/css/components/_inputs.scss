@@ -10,6 +10,14 @@
   font-size: 1.2rem;
   margin-right: 1rem;
 }
+.textfield-100-w {
+  padding: 0.3rem 0.5rem 0.3rem 0.8rem;
+  border-radius: 5px;
+  border: none;
+  width: 95%;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
 
 .textfield:focus {
   border: 1px solid $color-primary;

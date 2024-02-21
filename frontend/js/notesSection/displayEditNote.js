@@ -9,6 +9,7 @@ import {
 import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import displayEditDescription from './DisplayEditDescription.js';
 import displayEditHeadline from './displayEditHeadline.js';
+import displayOneNote from './displayOneNote.js';
 import saveNote from './saveNote.js';
 
 let app = document.querySelector('#app');
@@ -19,10 +20,17 @@ export default function editNote(noteId) {
   fetch(`http://localhost:3000/notes/${userId}/${noteId}`)
     .then((res) => res.json())
     .then((note) => {
+      let fullNoteDiv = createDiv('tiny-mce-content-centered', 'fullNoteDiv');
       let h2 = createH2(note.headline, 'headline');
-      let editBtn = createIconButton(`editH2Btn`, '', 'edit', 'flex-edit-btn');
-      let h2Div = createDiv('flex', 'h2Div');
-      h2Div.append(h2, editBtn);
+      h2.classList.add('edit-note-h2');
+      let edith2Btn = createIconButton(
+        `editH2Btn`,
+        '',
+        'edit',
+        'flex-edit-btn'
+      );
+      let h2Div = createDiv('edit-h2-div', 'h2Div');
+      h2Div.append(h2, edith2Btn);
       let description = createParagraph(note.description, '', 'description');
       let editDescBtn = createIconButton(
         `editDescBtn`,
@@ -30,12 +38,25 @@ export default function editNote(noteId) {
         'edit',
         'flex-edit-btn'
       );
-      let descDiv = createDiv('flex', 'descDiv');
+      let descDiv = createDiv('edit-desc-div', 'descDiv');
       descDiv.append(description, editDescBtn);
-
       let tinyMCE = createTinyMCE(note);
-      let button = createButton('saveNoteBtn', 'Save Note', 'margin-top-1-rem');
-      app.append(h2Div, descDiv, tinyMCE, button);
+      let btnDiv = createDiv('view-note-btns');
+      let saveButton = createIconButton(
+        'saveNoteBtn',
+        'Save Note',
+        'save',
+        'flex-edit-btn'
+      );
+      let viewButton = createIconButton(
+        `viewNoteBtn`,
+        'View Note',
+        'search',
+        'flex-edit-btn'
+      );
+      btnDiv.append(viewButton, saveButton);
+      fullNoteDiv.append(h2Div, descDiv, tinyMCE, btnDiv);
+      app.append(fullNoteDiv);
 
       tinymce.init({
         selector: 'textarea#tinyMCEEditor',
@@ -66,6 +87,9 @@ export default function editNote(noteId) {
       });
       document.querySelector('#editDescBtn').addEventListener('click', () => {
         displayEditDescription(noteId);
+      });
+      document.querySelector('#viewNoteBtn').addEventListener('click', () => {
+        displayOneNote(noteId);
       });
     });
 }

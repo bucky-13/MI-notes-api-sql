@@ -127,6 +127,34 @@ main {
   padding-top: 2rem;
 }
 
+.edit-h2-div {
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 1px dashed black;
+  width: 100%;
+  h2 {
+    text-align: center;
+  }
+}
+.edit-desc-div {
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed black;
+  width: 100%;
+  p {
+    text-align: center;
+  }
+}
+
+.edit-desc-div.edit-mode {
+  // background-color: red;
+  padding: 0.47rem 0;
+}
+
 .viewNoteP {
   border-bottom: 1px dashed black;
   border-top: 1px dashed black;

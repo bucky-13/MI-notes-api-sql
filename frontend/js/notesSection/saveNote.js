@@ -1,5 +1,5 @@
 import { displayFeedbackContainer } from '../lib/userFeedback.js';
-import editNote from './editNote.js';
+import editNote from './displayEditNote.js';
 
 export default function saveNote(noteId) {
   let userId = Number(localStorage.getItem('userId'));

@@ -1,7 +1,6 @@
 import {
   createH2,
   createH3,
-  createButton,
   createIconButton,
   createDiv,
   createParagraph,
@@ -10,7 +9,7 @@ import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import displayCreateNote from './displayCreateNote.js';
 import displayDeleteNote from './displayDeleteNote.js';
 import displayOneNote from './displayOneNote.js';
-import editNote from './editNote.js';
+import editNote from './displayEditNote.js';
 
 let app = document.querySelector('#app');
 
