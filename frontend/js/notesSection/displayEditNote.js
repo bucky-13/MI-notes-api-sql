@@ -63,6 +63,8 @@ export default function editNote(noteId) {
         selector: 'textarea#tinyMCEEditor',
         height: 600,
         width: '90%',
+        content_style: `body { background-image: linear-gradient(#ffffff90, #ffffff90),
+    url('/frontend/images/navbarBackground.webp' ); }`,
         skin: window.matchMedia('(prefers-color-scheme: dark)').matches
           ? 'oxide-dark'
           : 'oxide',
