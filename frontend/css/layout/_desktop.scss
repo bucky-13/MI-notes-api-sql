@@ -178,12 +178,50 @@ main {
   text-align: center;
 }
 
+.about-div {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  padding: 2rem;
+  justify-content: center;
+  background-image: linear-gradient(#ffffff90, #ffffff90),
+    url('/frontend/images/navbarBackground.webp');
+  align-items: start;
+  border: 1px solid black;
+  margin-bottom: 16px;
+  margin-top: 2rem;
+  width: 70%;
+  gap: 16px;
+
+  h2 {
+    grid-column: span 2;
+    text-align: center;
+  }
+  p {
+    align-self: start;
+  }
+}
+
+.about-img {
+  object-fit: cover;
+  grid-row: span 4;
+  justify-self: center;
+  margin-top: 1rem;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border: 2px solid $color-primary-border-btn;
+}
+
 .view-note-text-content-container {
   padding-top: 2rem;
 }
 
 .alignment-right {
   text-align: right;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .bold {
