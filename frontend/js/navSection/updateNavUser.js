@@ -1,3 +1,4 @@
+import removeTinyMCE from '../lib/removeTinyMCE.js';
 import displayLogin from '../userSection/displayLogin.js';
 import logoutUser from '../userSection/logoutUser.js';
 
@@ -10,7 +11,10 @@ export default function updateNavUser() {
       'Logged in as: ' + localStorage.getItem('userName');
     navUserBtn.textContent = 'Log out';
     navUserBtn.removeEventListener('click', displayLogin);
-    navUserBtn.addEventListener('click', logoutUser);
+    navUserBtn.addEventListener('click', () => {
+      removeTinyMCE();
+      logoutUser();
+    });
   } else {
     navUsername.textContent = '';
     navUserBtn.textContent = 'Log In / Create Account';

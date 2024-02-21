@@ -27,5 +27,4 @@ export default function displayAboutSection() {
 
   div.append(h2, p1, image, p2, p3, p4);
   app.append(div);
-  console.log('about');
 }

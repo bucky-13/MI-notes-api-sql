@@ -6,6 +6,7 @@ import {
   createParagraph,
   createTinyMCE,
 } from '../lib/createElements.js';
+import removeTinyMCE from '../lib/removeTinyMCE.js';
 import { clearAppPlusFeedbackContainer } from '../lib/userFeedback.js';
 import displayEditDescription from './DisplayEditDescription.js';
 import displayEditHeadline from './displayEditHeadline.js';
@@ -80,6 +81,7 @@ export default function editNote(noteId) {
       });
 
       document.querySelector('#saveNoteBtn').addEventListener('click', () => {
+        removeTinyMCE();
         saveNote(noteId);
       });
       document.querySelector('#editH2Btn').addEventListener('click', () => {
@@ -89,6 +91,7 @@ export default function editNote(noteId) {
         displayEditDescription(noteId);
       });
       document.querySelector('#viewNoteBtn').addEventListener('click', () => {
+        removeTinyMCE();
         displayOneNote(noteId);
       });
     });
