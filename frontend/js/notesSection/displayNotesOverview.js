@@ -40,13 +40,16 @@ export default function displayNotesOverview() {
 
           let h3 = createH3(note.headline, `note-${note.noteId}`);
           let description = createParagraph(note.description);
+
           let date = new Date(note.created);
           let time = `${date.getHours()}:${
             (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()
           }`;
+
           let yearMonthDay = `${date.getFullYear()}-${
-            (date.getMonth() < 10 ? '0' : '') + date.getMonth()
-          }-${(date.getDay() < 10 ? '0' : '') + date.getDay()}`;
+            (Number(date.getMonth() + 1) < 10 ? '0' : '') +
+            Number(date.getMonth() + 1)
+          }-${(date.getDate() < 10 ? '0' : '') + date.getDate()}`;
 
           let pText = `<span class="bold">Created:</span><br> ${yearMonthDay}, ${time}`;
           let p = createParagraph(pText, 'alignment-right');

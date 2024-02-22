@@ -65,12 +65,8 @@ export default function editNote(noteId) {
         width: '90%',
         content_style: `body { background-image: linear-gradient(#ffffff90, #ffffff90),
     url('/frontend/images/navbarBackground.webp' ); }`,
-        skin: window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? 'oxide-dark'
-          : 'oxide',
-        content_css: window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? 'dark'
-          : 'default',
+        skin_url: '/tinyMceSkins/skins/ui/CUSTOM',
+        skin: 'CUSTOM',
         plugins: 'code',
         toolbar:
           'undo redo | styleselect bold italic blockquote | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent code | cut copy paste | visualaid',
