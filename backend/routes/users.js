@@ -2,6 +2,24 @@ var express = require('express');
 var router = express.Router();
 const CryptoJS = require('crypto-js');
 
+const nameRegEx = new RegExp(/[A-Za-z0-9_-]{3,}/);
+const emailRegEx = new RegExp(/^[a-z0-9.]{1,64}@[a-z0-9.]{1,64}$/i);
+
+function checkForm(userName, userEmail) {
+  let email = emailRegEx.exec(userEmail);
+  let name = nameRegEx.exec(userName);
+
+  if (email === null && name === null) {
+    return 'User name and email are incorrect';
+  } else if (email === null) {
+    return 'Email is incorrect';
+  } else if (name === null) {
+    return 'User name is incorrect, valid characters are a-z, A-Z, 0-9, dash - and underscore _';
+  } else {
+    return 'regexOK';
+  }
+}
+
 // recieve all users
 router.get('/', function (req, res, next) {
   req.app.locals.con.connect(function (err) {
@@ -30,20 +48,29 @@ router.post('/', function (req, res, next) {
 
     let userName = req.body.userName;
     let userEmail = req.body.userEmail;
-    //  ADD password encryption later on
     let userPassword = req.body.userPassword;
 
-    if (userName == '' || userEmail == '' || userPassword == '') {
+    // CHECK IF FORM INFO PASSES REGEX + CHECK PASSWORD LENGTH
+    let isUserDataCorrect = checkForm(userName, userEmail);
+
+    if (isUserDataCorrect !== 'regexOK') {
       res.status(409).json({
-        message:
-          'You need to fill in all fields correctly to create an account',
+        message: isUserDataCorrect,
       });
+      return;
+    } else if (userPassword.length < 3) {
+      res.status(409).json({
+        message: 'Password needs to be at least 3 characters long',
+      });
+      return;
     }
+
     let encryptedPw = CryptoJS.AES.encrypt(
       userPassword,
       process.env.KEY_OF_SALT
     ).toString();
 
+    // THIS CHECKS IF USER NAME OR EMAIL ALREADY ARE TAKEN BY ANOTHER USER
     let firstSql = `SELECT * FROM users WHERE userName="${userName}" OR userEmail="${userEmail}"`;
 
     // POST new user into database
