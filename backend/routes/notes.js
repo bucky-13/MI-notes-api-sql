@@ -125,25 +125,6 @@ router.delete('/', (req, res, next) => {
   });
 });
 
-// GET all notes - just for testing, not needed for the app, delete route when no longer needed
-router.get('/', function (req, res, next) {
-  req.app.locals.con.connect(function (err) {
-    if (err) {
-      console.log(err);
-    }
-
-    // GET all information from all notes
-    let sql = `SELECT * FROM notes WHERE deleted="0"`;
-
-    req.app.locals.con.query(sql, function (err, result) {
-      if (err) {
-        console.log(err);
-      }
-      res.json(result);
-    });
-  });
-});
-
 function filterQuotes(text) {
   let newText = text.replace(/"/g, '""');
   return newText;
