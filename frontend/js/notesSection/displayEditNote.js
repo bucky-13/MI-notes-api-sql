@@ -70,6 +70,7 @@ export default function editNote(noteId) {
         plugins: 'code',
         toolbar:
           'undo redo | styleselect bold italic blockquote | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent code | cut copy paste | visualaid',
+        promotion: false,
 
         setup: function (editor) {
           editor.on('change', function () {
