@@ -9,10 +9,14 @@ function displayFeedbackContainer(message, pClass) {
   let p = createParagraph(message, pClass);
   div.append(p);
   feedbackSection.append(div);
+  setTimeout(clearFeedbackContainer, 5000);
 }
 
 function clearAppPlusFeedbackContainer() {
   app.innerHTML = '';
+  feedbackSection.innerHTML = '';
+}
+function clearFeedbackContainer() {
   feedbackSection.innerHTML = '';
 }
 

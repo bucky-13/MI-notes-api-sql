@@ -18,6 +18,10 @@ export default function displayAboutSection() {
   image.setAttribute('src', '/frontend/images/candlekeep.webp');
   image.setAttribute('width', '400');
   image.setAttribute('height', '400');
+  image.setAttribute(
+    'alt',
+    'An image of Candlekeep Library taken from above in the game of Baldurs Gate'
+  );
   image.classList.add('about-img');
 
   let p1 = createParagraph(firstP);
