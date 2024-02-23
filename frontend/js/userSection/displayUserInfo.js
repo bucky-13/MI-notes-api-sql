@@ -15,7 +15,8 @@ export default function displayUserinfo() {
 
   if (userId) {
     clearAppPlusFeedbackContainer();
-    let h2 = createH2('User information about: ' + userName);
+    let h2 = createH2('User information about: ' + userName, '', 'user-h2');
+    console.log(h2);
     let div = createDiv('flex-column');
     let p1 = createParagraph(`User Name: ${userName}`);
     let p2 = createParagraph(`User Email: ${userEmail}`);
@@ -26,6 +27,7 @@ export default function displayUserinfo() {
       'Update your personal information',
       'margin-top-1-rem'
     );
+
     app.append(h2, div, button);
 
     document

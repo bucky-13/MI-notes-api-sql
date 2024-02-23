@@ -1,11 +1,15 @@
 import createIcon from './createIcons.js';
 
 // pass in the text that will be displayed in the h2 element
-function createH2(text, id) {
+function createH2(text, id, h2class) {
   let h2 = document.createElement('h2');
   h2.textContent = text;
+  console.log(h2class);
   if (id) {
     h2.id = id;
+  }
+  if (h2class) {
+    h2.classList.add(h2class);
   }
   return h2;
 }

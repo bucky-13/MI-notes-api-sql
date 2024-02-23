@@ -23,7 +23,6 @@ nav {
   justify-content: space-around;
   align-items: center;
   height: 80px;
-  //   background-color: #864414;
   background-image: linear-gradient(#ffffff60, #ffffff60),
     url('/frontend/images/navbarBackground.webp');
   background-size: contain;
@@ -97,6 +96,12 @@ main {
   min-width: 300px;
   padding: 1rem 0;
   margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.user-h2 {
+  text-align: center;
+  padding: 0 0.5rem;
 }
 
 .notes-grid {

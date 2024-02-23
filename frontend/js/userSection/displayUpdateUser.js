@@ -14,7 +14,7 @@ export default function displayUpdateUser() {
   let userName = localStorage.getItem('userName');
   let userEmail = localStorage.getItem('userEmail');
 
-  let h2 = createH2('Update user information:');
+  let h2 = createH2('Update user information:', '', 'user-h2');
 
   let userNameInput = createInputWithLabel(
     'text',
