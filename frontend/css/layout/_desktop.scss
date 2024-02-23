@@ -62,7 +62,7 @@ main {
   align-items: center;
   flex-direction: row;
   justify-content: space-evenly;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   max-width: 900px;
   width: 100%;
   min-width: 500px;
@@ -94,14 +94,14 @@ main {
     url('/frontend/images/navbarBackground.webp');
   border: 1px solid black;
   width: 50%;
-  min-width: 500px;
+  min-width: 300px;
   padding: 1rem 0;
   margin-bottom: 1rem;
 }
 
 .notes-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 105px 100px 120px 140px;
+  grid-template-columns: 1fr 1.5fr 110px 110px 110px 140px;
   align-items: center;
   gap: 16px;
   width: 90%;
@@ -112,6 +112,9 @@ main {
     url('/frontend/images/navbarBackground.webp');
 }
 
+.created-span {
+  display: block;
+}
 .view-note-btns {
   display: flex;
   align-items: center;
@@ -141,6 +144,7 @@ main {
   padding-bottom: 2rem;
   border-bottom: 1px dashed black;
   width: 100%;
+  gap: 10px;
   h2 {
     text-align: center;
   }
@@ -152,6 +156,7 @@ main {
   margin-bottom: 1.5rem;
   border-bottom: 1px dashed black;
   width: 100%;
+  gap: 10px;
   p {
     text-align: center;
   }

@@ -1,0 +1,92 @@
+@media (max-width: 1068px) {
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto 42px 30px;
+    align-items: center;
+    gap: 16px;
+    width: 95%;
+    border: 1px solid black;
+    padding-left: 1.3rem;
+    padding-right: 1rem;
+  }
+
+  .notes-grid h3 {
+    // display: flex;
+    grid-column: 1 / span 3;
+    margin-bottom: 0;
+  }
+
+  .overview-p {
+    grid-column: 1 / span 3;
+    margin: 0;
+  }
+
+  .notes-grid button {
+    // grid-column: span 4;
+    justify-self: center;
+  }
+
+  .notes-grid .alignment-right {
+    grid-column: span 3;
+  }
+
+  .created-span {
+    display: inline;
+  }
+
+  .tiny-mce-content {
+    padding: 1.5rem;
+    min-width: 350px;
+    width: 95%;
+  }
+
+  .tiny-mce-content-centered {
+    padding: 1.5rem;
+    min-width: 350px;
+    width: 95%;
+  }
+
+  .about-div {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding: 2rem;
+    justify-content: center;
+    background-image: linear-gradient(#ffffff40, #ffffff40),
+      url('/frontend/images/navbarBackground.webp');
+    align-items: start;
+    border: 1px solid black;
+    margin-bottom: 16px;
+    margin-top: 2rem;
+    width: 95%;
+    gap: 16px;
+
+    h2 {
+      grid-column: span 2;
+      text-align: center;
+    }
+    p {
+      align-self: start;
+    }
+  }
+
+  .flex-column {
+    width: 80%;
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 538px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  .about-div {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    align-items: start;
+    width: 90%;
+    gap: 0;
+  }
+}

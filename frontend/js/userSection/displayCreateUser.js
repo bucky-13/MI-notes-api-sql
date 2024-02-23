@@ -12,7 +12,7 @@ let app = document.querySelector('#app');
 
 export default function displayCreateUser() {
   clearAppPlusFeedbackContainer();
-  let h2 = createH2('Create new Account');
+  let h2 = createH2('Create Account');
   let nameInput = createInputWithLabel('text', 'userName', 'User name:');
   let emailInput = createInputWithLabel('email', 'userEmail', 'Email:');
   let passwordInput = createInputWithLabel(

@@ -39,7 +39,7 @@ export default function displayNotesOverview() {
           let div = createDiv('notes-grid');
 
           let h3 = createH3(note.headline, `note-${note.noteId}`);
-          let description = createParagraph(note.description);
+          let description = createParagraph(note.description, 'overview-p');
 
           let date = new Date(note.created);
           let time = `${date.getHours()}:${
@@ -51,7 +51,7 @@ export default function displayNotesOverview() {
             Number(date.getMonth() + 1)
           }-${(date.getDate() < 10 ? '0' : '') + date.getDate()}`;
 
-          let pText = `<span class="bold">Created:</span><br> ${yearMonthDay}, ${time}`;
+          let pText = `<span class="bold created-span">Created:</span> ${yearMonthDay}, ${time}`;
           let p = createParagraph(pText, 'alignment-right');
 
           let viewBtn = createIconButton(
