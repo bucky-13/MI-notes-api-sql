@@ -296,7 +296,7 @@ pre[class*="language-"] {
   position: relative;
 }
 .mce-content-body[data-mce-placeholder]:not(.mce-visualblocks)::before {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(34, 47, 62, 0.7);
   content: attr(data-mce-placeholder);
   position: absolute;
 }

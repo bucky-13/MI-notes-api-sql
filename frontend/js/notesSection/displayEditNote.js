@@ -61,7 +61,7 @@ export default function editNote(noteId) {
 
       tinymce.init({
         selector: 'textarea#tinyMCEEditor',
-        height: 600,
+        height: 700,
         width: '90%',
         content_style: `body { background-image: linear-gradient(#ffffff90, #ffffff90),
     url('/frontend/images/navbarBackground.webp' ); }`,
@@ -71,6 +71,7 @@ export default function editNote(noteId) {
         toolbar:
           'undo redo | styleselect bold italic blockquote | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent code | cut copy paste | visualaid',
         promotion: false,
+        statusbar: false,
 
         setup: function (editor) {
           editor.on('change', function () {
