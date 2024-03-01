@@ -61,7 +61,7 @@ export default function editNote(noteId) {
 
       tinymce.init({
         selector: 'textarea#tinyMCEEditor',
-        height: 700,
+        height: 500,
         width: '90%',
         content_style: `body { background-image: linear-gradient(#ffffff90, #ffffff90),
     url('/frontend/images/navbarBackground.webp' ); }`,
